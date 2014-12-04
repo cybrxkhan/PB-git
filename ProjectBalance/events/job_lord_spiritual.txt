@@ -128,12 +128,24 @@ character_event = {
 			learning = 13
 		}
 		modifier = {
+			factor = 3.0
+			NOT = { religion_authority = 0.1 }
+		}
+		modifier = {
 			factor = 2.0
+			NOT = { religion_authority = 0.2 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { religion_authority = 0.3 }
+		}
+		modifier = {
+			factor = 1.5
 			NOT = { religion_authority = 0.4 }
 		}
 		modifier = {
-			factor = 4.0
-			NOT = { religion_authority = 0.2 }
+			factor = 1.5
+			NOT = { religion_authority = 0.5 }
 		}
 		modifier = {
 			factor = 0.75
@@ -141,8 +153,37 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.75
+			religion_authority = 0.7
+		}
+		modifier = {
+			factor = 0.75
 			religion_authority = 0.8
 		}
+		modifier = {
+			factor = 0.75
+			religion_authority = 0.9
+		}
+		
+		# Hindus and Buddhists have a hard time converting other Indian religions
+		modifier = {
+			factor = 3.0
+			OR = {
+				religion = hindu
+				religion = buddhist
+			}
+			location = {
+				religion_group = indian_group
+			}
+		}
+		# Jains have a hard time converting ALL non-pagans
+		modifier = {
+			factor = 3.0
+			religion = jain
+			location = {
+				NOT = { religion_group = pagan_group }
+			}
+		}
+		
 		modifier = {
 			factor = 3.0
 			religion_group = pagan_group
@@ -163,7 +204,7 @@ character_event = {
 			has_province_modifier = force_converting
 		}
 		modifier = {
-			factor = 2.0
+			factor = 3.0
 			has_province_modifier = heretic_stronghold
 		}
 		modifier = {
@@ -194,6 +235,53 @@ character_event = {
 			factor = 3
 			location = { religion_group = muslim }
 			religion_group = muslim
+		}
+
+		# PB standard employer opinion factors
+		modifier = {
+			factor = 1.09
+			NOT = { opinion = { who = liege value = -99 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -80 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -60 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -40 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -20 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = 0 } }
+		}
+		modifier = {
+			factor = 1.03
+			NOT = { opinion = { who = liege value = 20 } }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 35 }
+			liege = { ai = yes }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 55 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 95 }
 		}
 	}
 
@@ -359,6 +447,53 @@ character_event = {
 			religion_group = pagan_group
 			is_reformed_religion = no
 		}
+
+		# PB standard employer opinion factors
+		modifier = {
+			factor = 1.09
+			NOT = { opinion = { who = liege value = -99 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -80 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -60 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -40 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -20 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = 0 } }
+		}
+		modifier = {
+			factor = 1.03
+			NOT = { opinion = { who = liege value = 20 } }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 35 }
+			liege = { ai = yes }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 55 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 95 }
+		}
 	}
 	
 	option = {
@@ -487,6 +622,14 @@ character_event = {
 	
 	mean_time_to_happen = {
 		months = 120
+		
+		modifier = {
+			factor = 2.0
+			liege = {
+				tier = count
+				ai = yes
+			}
+		}
 	
 		modifier = {
 			factor = 0.75
@@ -663,6 +806,7 @@ character_event = {
 	trigger = {
 		has_job_action = action_inquisition
 		NOT = { religion_group = pagan_group }
+		NOT = { religion_group = indian_group }
 		location = {
 			any_province_lord = {
 				NOT = { is_liege_of = ROOT }
@@ -1028,6 +1172,53 @@ character_event = {
 			factor = 2.0
 			religion_authority = 0.8
 		}
+		
+		# PB inverse employer opinion factors
+		modifier = {
+			factor = 0.91
+			NOT = { opinion = { who = liege value = -99 } }
+		}
+		modifier = {
+			factor = 0.94
+			NOT = { opinion = { who = liege value = -80 } }
+		}
+		modifier = {
+			factor = 0.94
+			NOT = { opinion = { who = liege value = -60 } }
+		}
+		modifier = {
+			factor = 0.94
+			NOT = { opinion = { who = liege value = -40 } }
+		}
+		modifier = {
+			factor = 0.94
+			NOT = { opinion = { who = liege value = -20 } }
+		}
+		modifier = {
+			factor = 0.94
+			NOT = { opinion = { who = liege value = 0 } }
+		}
+		modifier = {
+			factor = 0.97
+			NOT = { opinion = { who = liege value = 20 } }
+		}
+		modifier = {
+			factor = 1.04        
+			opinion = { who = liege value = 35 }
+			liege = { ai = yes }
+		}
+		modifier = {
+			factor = 1.04        
+			opinion = { who = liege value = 55 }
+		}
+		modifier = {
+			factor = 1.04        
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 1.04        
+			opinion = { who = liege value = 95 }
+		}
 	}
 
 	option = {
@@ -1227,6 +1418,53 @@ character_event = {
 			factor = 0.75
 			religion_authority = 0.8
 		}
+		
+		# PB standard employer opinion factors
+		modifier = {
+			factor = 1.09
+			NOT = { opinion = { who = liege value = -99 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -80 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -60 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -40 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -20 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = 0 } }
+		}
+		modifier = {
+			factor = 1.03
+			NOT = { opinion = { who = liege value = 20 } }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 35 }
+			liege = { ai = yes }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 55 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 95 }
+		}
 	}
 	
 	option = {
@@ -1314,6 +1552,53 @@ character_event = {
 		modifier = {
 			factor = 0.75
 			religion_authority = 0.8
+		}
+
+		# PB standard employer opinion factors
+		modifier = {
+			factor = 1.09
+			NOT = { opinion = { who = liege value = -99 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -80 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -60 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -40 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -20 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = 0 } }
+		}
+		modifier = {
+			factor = 1.03
+			NOT = { opinion = { who = liege value = 20 } }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 35 }
+			liege = { ai = yes }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 55 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 95 }
 		}
 	}
 	
@@ -1508,6 +1793,53 @@ character_event = {
 			factor = 0.75
 			religion_authority = 0.8
 		}
+		
+		# PB standard employer opinion factors
+		modifier = {
+			factor = 1.09
+			NOT = { opinion = { who = liege value = -99 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -80 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -60 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -40 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -20 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = 0 } }
+		}
+		modifier = {
+			factor = 1.03
+			NOT = { opinion = { who = liege value = 20 } }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 35 }
+			liege = { ai = yes }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 55 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 95 }
+		}
 	}
 	
 	option = {
@@ -1582,6 +1914,7 @@ character_event = {
 	
 	trigger = {
 		has_job_action = action_improve_rel_relations
+		NOT = { religion_group = indian_group }
 		location = { 
 			any_province_lord = {
 				is_priest = yes
@@ -1629,6 +1962,53 @@ character_event = {
 		modifier = {
 			factor = 0.75
 			learning = 13
+		}
+
+		# PB standard employer opinion factors
+		modifier = {
+			factor = 1.09
+			NOT = { opinion = { who = liege value = -99 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -80 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -60 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -40 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -20 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = 0 } }
+		}
+		modifier = {
+			factor = 1.03
+			NOT = { opinion = { who = liege value = 20 } }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 35 }
+			liege = { ai = yes }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 55 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 95 }
 		}
 	}
 	
@@ -1752,6 +2132,53 @@ character_event = {
 			factor = 0.75
 			learning = 13
 		}
+		
+		# PB standard employer opinion factors
+		modifier = {
+			factor = 1.09
+			NOT = { opinion = { who = liege value = -99 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -80 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -60 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -40 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -20 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = 0 } }
+		}
+		modifier = {
+			factor = 1.03
+			NOT = { opinion = { who = liege value = 20 } }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 35 }
+			liege = { ai = yes }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 55 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 95 }
+		}
 	}
 	
 	option = {
@@ -1792,27 +2219,23 @@ character_event = {
 	
 	trigger = {
 		has_job_action = action_advance_cul_tech
+		NOT = { religion_group = indian_group }
 		is_heretic = no
-		liege = { 
+		OR = {
+			religion_group = christian
+			religion_group = muslim
+			religion_group = jewish_group
+		}
+		liege = {
 			is_heretic = no
-			NOT = {
-				religion = norse_pagan
-				religion = tengri_pagan
-				religion = baltic_pagan
-				religion = finnish_pagan
-				religion = aztec
-				religion = slavic_pagan
-				religion = west_african_pagan
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
 			}
 		}
 		NOT = {
-			religion = norse_pagan
-			religion = tengri_pagan
-			religion = baltic_pagan
-			religion = finnish_pagan
-			religion = aztec
-			religion = slavic_pagan
-			religion = west_african_pagan
+			religion_head = { character = ROOT }
 		}
 	}
 	
@@ -1851,11 +2274,62 @@ character_event = {
 			factor = 0.75
 			learning = 13
 		}
+		
+		# NOTE: no PB employer opinion factors for heretic MTTH, only for AI chance to become one once the event's already triggered.
 	}
 	
 	option = {
 		name = "EVTOPTA927"
-		ai_chance = { factor = 80 }
+		ai_chance = {
+			factor = 80
+			
+			# PB standard employer opinion factors (would be inverse set but is an ai_chance, not an MTTH)
+			modifier = {
+				factor = 1.09
+				NOT = { opinion = { who = liege value = -99 } }
+			}
+			modifier = {
+				factor = 1.06
+				NOT = { opinion = { who = liege value = -80 } }
+			}
+			modifier = {
+				factor = 1.06
+				NOT = { opinion = { who = liege value = -60 } }
+			}
+			modifier = {
+				factor = 1.06
+				NOT = { opinion = { who = liege value = -40 } }
+			}
+			modifier = {
+				factor = 1.06
+				NOT = { opinion = { who = liege value = -20 } }
+			}
+			modifier = {
+				factor = 1.06
+				NOT = { opinion = { who = liege value = 0 } }
+			}
+			modifier = {
+				factor = 1.03
+				NOT = { opinion = { who = liege value = 20 } }
+			}
+			modifier = {
+				factor = 0.96        
+				opinion = { who = liege value = 35 }
+				liege = { ai = yes }
+			}
+			modifier = {
+				factor = 0.96        
+				opinion = { who = liege value = 55 }
+			}
+			modifier = {
+				factor = 0.96        
+				opinion = { who = liege value = 75 }
+			}
+			modifier = {
+				factor = 0.96        
+				opinion = { who = liege value = 95 }
+			}
+		}
 		become_heretic = yes
 		hidden_tooltip = {
 			liege = { letter_event = { id = 20270 days = 2 } }
@@ -1963,6 +2437,53 @@ character_event = {
 		modifier = {
 			factor = 0.75
 			religion_authority = 0.8
+		}
+		
+		# PB standard employer opinion factors
+		modifier = {
+			factor = 1.09
+			NOT = { opinion = { who = liege value = -99 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -80 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -60 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -40 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -20 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = 0 } }
+		}
+		modifier = {
+			factor = 1.03
+			NOT = { opinion = { who = liege value = 20 } }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 35 }
+			liege = { ai = yes }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 55 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 95 }
 		}
 	}
 	
@@ -2210,6 +2731,53 @@ character_event = {
 			factor = 0.75
 			trait = envious
 		}
+
+		# PB inverse employer opinion factors
+		modifier = {
+			factor = 0.91
+			NOT = { opinion = { who = liege value = -99 } }
+		}
+		modifier = {
+			factor = 0.94
+			NOT = { opinion = { who = liege value = -80 } }
+		}
+		modifier = {
+			factor = 0.94
+			NOT = { opinion = { who = liege value = -60 } }
+		}
+		modifier = {
+			factor = 0.94
+			NOT = { opinion = { who = liege value = -40 } }
+		}
+		modifier = {
+			factor = 0.94
+			NOT = { opinion = { who = liege value = -20 } }
+		}
+		modifier = {
+			factor = 0.94
+			NOT = { opinion = { who = liege value = 0 } }
+		}
+		modifier = {
+			factor = 0.97
+			NOT = { opinion = { who = liege value = 20 } }
+		}
+		modifier = {
+			factor = 1.04        
+			opinion = { who = liege value = 35 }
+			liege = { ai = yes }
+		}
+		modifier = {
+			factor = 1.04        
+			opinion = { who = liege value = 55 }
+		}
+		modifier = {
+			factor = 1.04        
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 1.04        
+			opinion = { who = liege value = 95 }
+		}
 	}
 	
 	option = {
@@ -2298,6 +2866,53 @@ character_event = {
 			factor = 0.75
 			learning = 13
 		}
+
+		# PB standard employer opinion factors
+		modifier = {
+			factor = 1.09
+			NOT = { opinion = { who = liege value = -99 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -80 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -60 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -40 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = -20 } }
+		}
+		modifier = {
+			factor = 1.06
+			NOT = { opinion = { who = liege value = 0 } }
+		}
+		modifier = {
+			factor = 1.03
+			NOT = { opinion = { who = liege value = 20 } }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 35 }
+			liege = { ai = yes }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 55 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 0.96        
+			opinion = { who = liege value = 95 }
+		}
 	}
 	
 	option = {
@@ -2318,5 +2933,219 @@ character_event = {
 	option = {
 		name = "EVTOPTA20051"
 		piety = 15
+	}
+}
+
+##############################
+# COURT CHAPLAIN
+# JOB: action_build_zeal
+##############################
+
+# 20218: The Court Priest has managed to raise an eager force of holy warriors
+character_event = {
+	id = 20218
+	title = EVTNAME20218
+	desc = EVTDESC20218
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		liege = {
+			is_adult = yes
+			prisoner = no
+			piety = 10
+			NOT = { trait = incapable }
+			OR = {
+				NOT = { has_character_flag = tribal_build_zeal_troops }
+				had_character_flag = { flag = tribal_build_zeal_troops days = 1825 }
+			}
+			OR = {
+				war = no
+				any_war = {
+					OR = {
+						using_cb = crusade
+						using_cb = religious
+						using_cb = religious_revolt
+						using_cb = pagan_holy_war
+						using_cb = buddhist_holy_war
+						using_cb = muslim_invasion
+						using_cb = manifest_destiny_invasion
+					}
+				}
+			}
+		}
+		has_job_action = action_build_zeal
+		location = {
+			county = {
+				is_occupied = no
+			}
+			ROOT = {
+				liege = {
+					is_capital = PREVPREV
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+			factor = 3.0
+			liege = {
+				tier = count
+			}
+		}
+		
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 2 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 3 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 0.75
+			learning = 9
+		}
+		modifier = {
+			factor = 0.75
+			learning = 10
+		}
+		modifier = {
+			factor = 0.75
+			learning = 11
+		}
+		modifier = {
+			factor = 0.75
+			learning = 12
+		}
+		modifier = {
+			factor = 0.75
+			learning = 13
+		}
+	}
+	
+	option = {
+		name = EVTOPTA20218
+		
+		piety = 25
+		hidden_tooltip  = {
+			liege = { character_event = { id = 20219 } }
+		}
+	}
+}
+
+# 20219: The liege is informed
+character_event = {
+	id = 20219
+	desc = EVTDESC20219
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		capital_scope = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					match_character = THIS
+					match_mult = 0.075
+					match_min = 100
+					match_max = 3000
+					attrition = 1.0
+					earmark = tribal_build_zeal
+					disband_on_peace = yes
+				}
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					match_character = THIS
+					match_mult = 0.075
+					match_min = 100
+					match_max = 3000
+					attrition = 1.0
+					earmark = tribal_build_zeal
+					disband_on_peace = yes
+				}
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					match_character = THIS
+					match_mult = 0.075
+					match_min = 100
+					match_max = 3000
+					attrition = 1.0
+					earmark = tribal_build_zeal
+					disband_on_peace = yes
+				}
+			}
+		}
+		
+		clr_character_flag = tribal_build_zeal_troops
+		set_character_flag = tribal_build_zeal_troops
+		
+		character_event = { id = 20220 days = 365 random = 90 }
+	}
+	
+	option = {
+		name = EVTOPTA20219
+		opinion = {
+			who = FROM
+			modifier = opinion_grateful
+			months = 60
+		}
+	}
+}
+
+# 20220: The men are displeased and disband
+character_event = {
+	id = 20220
+	desc = EVTDESC20220
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_earmarked_regiments = tribal_build_zeal
+		
+		NOT = {
+			any_war = {
+				OR = {
+					using_cb = crusade
+					using_cb = religious
+					using_cb = religious_revolt
+					using_cb = pagan_holy_war
+					using_cb = buddhist_holy_war
+					using_cb = muslim_invasion
+					using_cb = manifest_destiny_invasion
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA20220
+		piety = -25
+		clr_character_flag = tribal_build_zeal_troops
+		disband_event_forces = tribal_build_zeal
 	}
 }

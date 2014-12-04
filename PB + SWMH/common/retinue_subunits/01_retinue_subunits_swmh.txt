@@ -15,10 +15,29 @@ RETTYPE_CUL_SARDINIAN =
 	second_type = 3
 	second_amount = 100
 	
-	culture = sardinian
+	potential = {
+		culture = sardinian
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		knights_defensive = 0.6
+		light_cavalry_defensive = 0.6
 	}
 }
 RETTYPE_CUL_CORSICAN = 
@@ -29,10 +48,29 @@ RETTYPE_CUL_CORSICAN =
 	second_type = 3
 	second_amount = 100
 	
-	culture = corsican
+	potential = {
+		culture = corsican
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		knights_defensive = 0.6
+		light_cavalry_defensive = 0.6
 	}
 }
 RETTYPE_CUL_CENTRAL_ITALIAN = 
@@ -43,10 +81,29 @@ RETTYPE_CUL_CENTRAL_ITALIAN =
 	second_type = 3
 	second_amount = 100
 	
-	culture = central_italian
+	potential = {
+		culture = central_italian
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		knights_defensive = 0.6
+		light_cavalry_defensive = 0.6
 	}
 }
 RETTYPE_CUL_SOUTHER_ITALIAN = 
@@ -57,10 +114,29 @@ RETTYPE_CUL_SOUTHER_ITALIAN =
 	second_type = 3
 	second_amount = 100
 	
-	culture = southern_italian
+	potential = {
+		culture = southern_italian
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		knights_defensive = 0.6
+		light_cavalry_defensive = 0.6
 	}
 }
 RETTYPE_CUL_NEAPOLITAN = 
@@ -72,10 +148,29 @@ RETTYPE_CUL_NEAPOLITAN =
 	second_type = 3
 	second_amount = 100
 	
-	culture = neapolitan
+	potential = {
+		culture = neapolitan
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		knights_defensive = 0.6
+		light_cavalry_defensive = 0.6
 	}
 }
 RETTYPE_CUL_TUSCAN = 
@@ -86,10 +181,29 @@ RETTYPE_CUL_TUSCAN =
 	second_type = 3
 	second_amount = 100
 	
-	culture = tuscan
+	potential = {
+		culture = tuscan
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		knights_defensive = 0.6
+		light_cavalry_defensive = 0.6
 	}
 }
 RETTYPE_CUL_LIGURIAN = 
@@ -97,7 +211,25 @@ RETTYPE_CUL_LIGURIAN =
 	first_type = 5
 	first_amount = 250
 	
-	culture = ligurian
+	potential = {
+		culture = ligurian
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		archers_offensive = 0.2
@@ -109,7 +241,25 @@ RETTYPE_CUL_VENETIAN =
 	first_type = 1
 	first_amount = 250
 	
-	culture = venetian
+	potential = {
+		culture = venetian
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		heavy_infantry_defensive = 0.6
@@ -120,7 +270,25 @@ RETTYPE_CUL_LANGOBARDISCH =
 	first_type = 1
 	first_amount = 250
 	
-	culture = langobardisch
+	potential = {
+		culture = langobardisch
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		heavy_infantry_offensive = 0.6
@@ -135,11 +303,29 @@ RETTYPE_CUL_KARANTANCI =
 	second_type = 3
 	second_amount = 100
 	
-	culture = karantanci
+	potential = {
+		culture = karantanci
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
-		knights_defensive = 0.3
-		light_cavalry_defensive = 0.3
+		knights_defensive = 0.6
+		light_cavalry_defensive = 0.6
 	}
 }
 RETTYPE_CUL_MORAVIAN = 
@@ -150,10 +336,29 @@ RETTYPE_CUL_MORAVIAN =
 	second_type = 3
 	second_amount = 100
 	
-	culture = moravian
+	potential = {
+		culture = moravian
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		knights_offensive = 0.6
+		light_cavalry_offensive = 0.6
 	}
 }
 
@@ -165,11 +370,29 @@ RETTYPE_CUL_BOSNIAN =
 	second_type = 3
 	second_amount = 100
 	
-	culture = bosnian
+	potential = {
+		culture = bosnian
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
-		knights_offensive = 0.3
-		light_cavalry_offensive = 0.3
+		knights_offensive = 0.6
+		light_cavalry_offensive = 0.6
 	}
 }
 
@@ -181,7 +404,25 @@ RETTYPE_CUL_ESTONIAN =
 	second_type = 0
 	second_amount = 100 
 	
-	culture = tsuudi
+	potential = {
+		culture = tsuudi
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		heavy_infantry_offensive = 0.3
@@ -197,10 +438,29 @@ RETTYPE_CUL_CORNISH =
 	second_type = 3
 	second_amount = 100
 	
-	culture = cornish
+	potential = {
+		culture = cornish
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		knights_offensive = 0.6
+		light_cavalry_offensive = 0.6
 	}
 }
 
@@ -209,7 +469,25 @@ RETTYPE_CUL_NORSEGAELIC =
 	first_type = 1
 	first_amount = 250
 	
-	culture = norsegaelic
+	potential = {
+		culture = norsegaelic
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		heavy_infantry_offensive = 0.6
@@ -224,11 +502,31 @@ RETTYPE_CUL_ARPITAN =
 	second_type = 3
 	second_amount = 100
 	
-	culture = arpitan
+	potential = {
+		culture = arpitan
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		knights_offensive = 0.3
 		knights_defensive = 0.3
+		light_cavalry_offensive = 0.3
+		light_cavalry_defensive = 0.3
 	}
 }
 
@@ -237,7 +535,25 @@ RETTYPE_CUL_ARAGONESE =
 	first_type = 3
 	first_amount = 250
 	
-	culture = aragonese
+	potential = {
+		culture = aragonese
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		light_cavalry_offensive = 0.6
@@ -248,7 +564,25 @@ RETTYPE_CUL_GALICIAN =
 	first_type = 3
 	first_amount = 250
 	
-	culture = galician
+	potential = {
+		culture = galician
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		light_cavalry_offensive = 0.6
@@ -259,7 +593,25 @@ RETTYPE_CUL_LEONESE =
 	first_type = 3
 	first_amount = 250
 	
-	culture = leonese
+	potential = {
+		culture = leonese
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		light_cavalry_offensive = 0.6
@@ -271,8 +623,25 @@ RETTYPE_CUL_GOTHIC =
 	first_type = 1
 	first_amount = 250
 	
-	culture = gothic
+	potential = {
+		culture = gothic
 
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		heavy_infantry_offensive = 0.6
@@ -284,7 +653,26 @@ RETTYPE_CUL_ANGLONORSE =
 	first_type = 1
 	first_amount = 250
 	
-	culture = anglonorse
+	potential = {
+		culture = anglonorse
+		culture = cumbric
+
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
+	}
 	
 	modifier = {
 		heavy_infantry_offensive = 0.6
@@ -296,20 +684,26 @@ RETTYPE_CUL_ALBANIAN =
 	first_type = 3
 	first_amount = 250
 	
-	culture = arberian
+	potential = {
+		culture = arberian
 
-	modifier = {
-		light_cavalry_offensive = 0.6
+		# PB's retinue spam filter
+		OR = {
+			ai = no
+			AND = {
+				higher_real_tier_than = count
+				OR = {
+					higher_real_tier_than = duke
+					AND = {
+						independent = yes
+						realm_size = 18
+					}
+					realm_size = 24
+				}
+			}
+		}
 	}
-}
 
-RETTYPE_CUL_N_AFR = 
-{
-	first_type = 3
-	first_amount = 250
-	
-	culture_group = north_african
-	
 	modifier = {
 		light_cavalry_offensive = 0.6
 	}

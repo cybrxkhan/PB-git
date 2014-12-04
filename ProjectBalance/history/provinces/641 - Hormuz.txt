@@ -4,7 +4,7 @@
 title = c_hormuz
 
 # Settlements
-max_settlements = 6
+max_settlements = 5
 b_gombroon = castle
 b_abarkawan = city
 #b_abu_musa = castle
@@ -17,13 +17,10 @@ b_jiroth = temple
 
 # Misc
 culture = persian
-religion = sunni
+religion = zoroastrian
 
 # History
-867.1.1 = {
-	b_abarkawan = ct_trade_post_1
-	b_abarkawan = ct_trade_post_2
-}
+790.1.1 = { religion = sunni }
 1066.1.1 = {
 	capital = b_abarkawan
 	trade_post = b_motamedi

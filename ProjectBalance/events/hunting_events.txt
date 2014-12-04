@@ -760,9 +760,8 @@ character_event = {
 				war = no
 				prisoner = no
 				age = 16
-				NOT = {
-					trait = content
-				}
+				NOT = { trait = on_pilgrimage }
+				NOT = {	trait = content }
 				OR = {
 					trait = ambitious
 					trait = brave
@@ -1248,7 +1247,8 @@ character_event = {
 		clr_character_flag = holding_grand_hunt
 		clr_character_flag = hunt_paranoia
 		clr_character_flag = hunt_good_hounds
-		clr_character_flag = hunt_killed_something		
+		clr_character_flag = hunt_killed_something
+		clr_character_flag = do_not_disturb
 	}
 
 	option = {
@@ -1266,13 +1266,14 @@ character_event = {
 	
 	trigger = {
 		has_character_flag = holding_grand_hunt
-	}	
+	}
 	
 	immediate = {
 		clr_character_flag = holding_grand_hunt
 		clr_character_flag = hunt_paranoia
 		clr_character_flag = hunt_good_hounds
-		clr_character_flag = hunt_killed_something		
+		clr_character_flag = hunt_killed_something
+		clr_character_flag = do_not_disturb
 	}
 
 	option = {
@@ -1331,6 +1332,7 @@ character_event = {
 		random_vassal = {
 			limit = {
 				prisoner = no
+				NOT = { trait = on_pilgrimage }
 			}
 			opinion = {
 				modifier = opinion_irritated
@@ -1346,6 +1348,7 @@ character_event = {
 		random_vassal = {
 			limit = {
 				prisoner = no
+				NOT = { trait = on_pilgrimage }
 			}
 			opinion = {
 				modifier = opinion_happy
@@ -1369,6 +1372,7 @@ character_event = {
 				war = no
 				prisoner = no
 				age = 16
+				NOT = { trait = on_pilgrimage }
 				OR = {
 					trait = diligent
 					trait = ambitious
@@ -1395,5 +1399,23 @@ character_event = {
 			name = master_hunter
 			duration = 180
 		}
+	}
+}
+
+###########################################
+# Flag management                         #
+###########################################
+
+# Safety catch - clears character flags and modifiers
+character_event = {
+	id = 36999
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = do_not_disturb
+		clr_character_flag = holding_grand_hunt
 	}
 }

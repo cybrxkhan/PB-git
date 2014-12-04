@@ -3,11 +3,15 @@ decisions = {
 	feast_0 = {
 		potential = {
 			is_ruler = yes
-			is_feudal = yes
+			OR = {
+				is_feudal = yes
+				is_tribal = yes
+			}
 			prisoner = no
-			NOT = {
-				religion_group = muslim
-				religion_group = pagan_group
+			OR = {
+				religion_group = christian
+				religion_group = zoroastrian_group
+				religion_group = jewish_group
 			}
 			NOT = {
 				has_character_modifier = holding_large_feast
@@ -27,6 +31,7 @@ decisions = {
 				}
 			}			
 			num_of_vassals = 1
+			NOT = { has_character_flag = do_not_disturb }
 			NOT = { has_character_flag = upcoming_feast }
 		}
 		allow = {
@@ -35,6 +40,7 @@ decisions = {
 				is_occupied = no
 			}
 			prisoner = no
+			NOT = { trait = in_hiding }
 			scaled_wealth = 0.20
 			prestige = 100
 		}
@@ -43,7 +49,7 @@ decisions = {
 			set_character_flag = upcoming_feast
 			
 			hidden_tooltip = {
-				letter_event = { 
+				character_event = {
 					id = 72109  
 				}
 			}
@@ -62,13 +68,22 @@ decisions = {
 			}
 			modifier = {
 				factor = 0
-				month = 11
+				trait = shy
 			}
-			
 			modifier = {
 				factor = 0
-				NOT = { age = 30 }
-			}						
+				NOT = { diplomacy = 10 }
+			}	
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}
 		}
 	}
 	
@@ -84,7 +99,15 @@ decisions = {
 				has_character_modifier = summer_fair_timer
 			}
 			num_of_vassals = 1
+			NOT = { has_character_flag = do_not_disturb }
 			NOT = { has_character_flag = upcoming_fair }
+			OR = {
+				NOT = { has_character_flag = recent_summer_fair }
+				had_character_flag = {
+					flag = recent_summer_fair
+					days = 60
+				}
+			}
 		}
 		allow = {
 			war = no
@@ -93,6 +116,7 @@ decisions = {
 			}
 			scaled_wealth = 0.25
 			prisoner = no
+			NOT = { trait = in_hiding }
 		}
 		effect = {
 			scaled_wealth = -0.25
@@ -113,6 +137,28 @@ decisions = {
 					scaled_wealth = 5.0
 				}
 			}
+
+			modifier = {
+				factor = 0
+				trait = slothful
+			}	
+			
+			modifier = {
+				factor = 0
+				NOT = { stewardship = 10 }
+			}
+			
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}			
+			
 		}
 	}
 	
@@ -133,7 +179,8 @@ decisions = {
 					has_landed_title = e_il-khanate
 				}
 			}
-			NOT = {	has_character_flag = holding_grand_hunt }
+			NOT = {	has_character_modifier = holding_grand_hunt }
+			NOT = { has_character_flag = do_not_disturb }
 			NOT = {	has_character_flag = upcoming_hunt }
 		}
 		allow = {
@@ -144,6 +191,7 @@ decisions = {
 			scaled_wealth = 0.20
 			NOT = {	health_traits = 1 }
 			prisoner = no
+			NOT = { trait = in_hiding }
 		}
 		effect = {
 			scaled_wealth = -0.20
@@ -166,27 +214,141 @@ decisions = {
 			}
 			modifier = {
 				factor = 0
+				trait = craven
+			}			
+			modifier = {
+				factor = 0
 				NOT = {
-					martial = 8
+					martial = 10
 				}
 			}
 			modifier = {
 				factor = 0
-				NOT = { month = 9 }
-
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
 			}
 		}
-	}	
+	}
 	
-	catholic_pilgrimage = {
+	hold_tiger_hunt = {
 		potential = {
-		has_dlc = "Sons of Abraham"
-		is_ruler = yes
-		religion_group = christian
-		NOT = { trait = pilgrim }
-		NOT = { trait = on_pilgrimage }
-		NOT = { has_character_flag = activated_pilgrimage }
-		NOT = { has_character_flag = preparing_pilgrimage }
+			has_dlc = "Rajas of India"
+			is_ruler = yes
+			age = 16
+			prisoner = no
+			num_of_vassals = 1
+			capital_scope = {
+				OR = {
+					empire = { title = e_rajastan }
+					empire = { title = e_bengal }
+					empire = { title = e_deccan }
+					empire = { title = e_india }
+				}
+			}
+			NOT = { has_character_flag = do_not_disturb }
+			NOT = { has_character_flag = holding_tiger_hunt }
+			NOT = { has_character_modifier = hunt_timer }
+		}
+		allow = {
+			war = no
+			any_demesne_title = {
+				is_occupied = no
+			}
+			NOT = { month = 10 }
+			wealth = 25
+			NOT = {	trait = incapable }
+			NOT = { trait = in_hiding }
+			prisoner = no
+			NOT = { religion = jain }
+		}
+		effect = {
+			wealth = -25
+			set_character_flag = holding_tiger_hunt
+			set_character_flag = recent_minor_decision
+			set_character_flag = do_not_disturb
+			hidden_tooltip = { character_event = { id = RoI.2000 } }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					wealth = 200
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					martial = 10
+				}
+			}
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}				
+		}
+	}
+	
+	choose_hindu_patron_deity = {
+		potential = {
+			has_dlc = "Rajas of India"
+			is_playable = yes
+			age = 16
+			not = { trait = incapable }
+			religion = hindu
+			NOT = {
+				has_character_modifier = patron_shiva
+				has_character_modifier = patron_vishnu
+				has_character_modifier = patron_brahma
+				has_character_modifier = patron_kali
+				has_character_modifier = patron_ganesha
+				has_character_modifier = patron_ganga
+			}
+		}
+		allow = {
+			prisoner = no
+		}
+		effect = {
+			character_event = { id = RoI.100 }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 5
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+		}
+	}
+	
+	catholic_pilgrimage = {        # For all Christians
+		potential = {
+			has_dlc = "Sons of Abraham"
+			is_ruler = yes
+			religion_group = christian
+			NOT = { trait = pilgrim }
+			NOT = { has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -195,7 +357,8 @@ decisions = {
 				is_occupied = no
 			}
 			prisoner = no
-			scaled_wealth = 0.20
+			NOT = { trait = in_hiding }
+			scaled_wealth = 0.2
 			age = 16
 			custom_tooltip = {
 				text = health_travel_condition
@@ -214,8 +377,9 @@ decisions = {
 			}
 		}
 		effect = {
-			scaled_wealth = -0.20
+			scaled_wealth = -0.2
 			set_character_flag = activated_pilgrimage
+			set_character_flag = do_not_disturb
 			hidden_tooltip = {
 				character_event = { 
 					id = SoA.5000
@@ -226,14 +390,22 @@ decisions = {
 			always = no
 		}
 		ai_will_do = {
-			factor = 0.001             # Only a minority of Catholics ever go on a pilgrimage
+			factor = 1
+			
 			modifier = {
-				factor = 0
-				NOT = { age = 25 }
+				factor = 0.001             # Only a small minority of Christians ever go on a pilgrimage
 			}
 			modifier = {
 				factor = 3
 				trait = zealous
+			}
+			modifier = {
+				factor = 0
+				NOT = { wealth = 200 }
+			}			
+			modifier = {
+				factor = 0
+				NOT = { age = 30 }
 			}
 		}
 	}
@@ -241,6 +413,8 @@ decisions = {
 	go_on_hajj = {
 		is_high_prio = yes
 		potential = {
+			has_global_flag = project_balance
+			had_global_flag = { flag = project_balance days = 1 }
 			is_female = no
 			is_ruler = yes
 			religion_group = muslim
@@ -249,6 +423,7 @@ decisions = {
 			NOT = {	has_character_flag = preparing_hajj }
 			NOT = {	has_character_flag = ramadan }
 			NOT = {	has_character_flag = activated_hajj }
+			NOT = {	has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -257,7 +432,8 @@ decisions = {
 				is_occupied = no
 			}
 			prisoner = no
-			scaled_wealth = 0.20
+			NOT = { trait = in_hiding }
+			scaled_wealth = 0.2
 			age = 16
 			custom_tooltip = {
 				text = health_travel_condition
@@ -275,9 +451,18 @@ decisions = {
 			}
 		}
 		effect = {
-			scaled_wealth = -0.20
+			scaled_wealth = -0.2
 			clr_character_flag = promise_hajj
 			set_character_flag = activated_hajj
+			set_character_flag = recent_minor_decision
+			set_character_flag = do_not_disturb
+			
+			if = {
+				limit = {
+					trait = decadent
+				}
+				remove_trait = decadent
+			}
 
 			hidden_tooltip = {
 				letter_event = { 
@@ -295,13 +480,27 @@ decisions = {
 				factor = 0
 				trait = cynical
 			}
+			modifier = {
+				factor = 0
+				is_ruler = no
+				trait = decadent
+			}
+			modifier = {
+				factor = 2
+				is_ruler = yes
+				trait = decadent
+			}
+			modifier = {
+				factor = 0
+				NOT = { wealth = 300 }
+			}
 			modifier = { # Monthly randomizer for when AI takes decision (1% chance)
 				factor = 0
 				random = 1
 			}
 			modifier = {
 				factor = 0
-				NOT = { age = 22 }
+				NOT = { age = 30 }
 			}
 		}
 	}
@@ -322,6 +521,7 @@ decisions = {
 		allow = {
 			war = no
 			prisoner = no
+			NOT = { trait = in_hiding }
 			wealth = 100
 		}
 		effect = {
@@ -329,7 +529,7 @@ decisions = {
 			set_character_flag = ramadan
 			decadence = -3
 			piety = 15
-			wealth = -60
+			wealth = -100
 			add_character_modifier = {
 				name = observed_ramadan
 				duration = 1900
@@ -353,6 +553,7 @@ decisions = {
 			trait = depressed
 		}
 		effect = {
+			prestige = -200
 			death = { death_reason = death_suicide }
 		}
 		revoke_allowed = {
@@ -369,11 +570,7 @@ decisions = {
 			is_ruler = yes
 			age = 16
 			prisoner = no
-			OR = {
-				culture_group = north_germanic
-				religion = norse_pagan
-				religion = norse_pagan_reformed
-			}
+			culture_group = north_germanic
 			NOT = {	has_character_flag = commissioned_runestone }
 			NOT = { year = 1150 }
 		}
@@ -393,25 +590,36 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { wealth = 300 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { age = 30 }
+			}			
 		}
-	}	
+	}
 	
 	hold_nerge = {
 		is_high_prio = yes
 		potential = {
+			has_global_flag = project_balance
+			had_global_flag = { flag = project_balance days = 1 }
 			has_dlc = "The Old Gods"
+			independent = yes
 			is_ruler = yes
 			age = 16
 			is_female = no
 			prisoner = no
-			culture = mongol
+			culture_group = altaic
 			OR = {
-				has_landed_title = e_il-khanate
-				has_landed_title = e_golden_horde
-				has_landed_title = e_mongol_empire
+				religion = tengri_pagan
+				religion = tengri_pagan_reformed
 			}
 			NOT = { has_character_modifier = morale_from_nerge }
 			NOT = {	has_character_flag = holding_nerge }
+			NOT = {	has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -422,10 +630,14 @@ decisions = {
 			scaled_wealth = 0.20
 			NOT = { month = 10 }
 			prisoner = no
+			NOT = { trait = in_hiding }
 		}
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_nerge
+			set_character_flag = recent_minor_decision
+			set_character_flag = do_not_disturb
+			hidden_tooltip = { character_event = { id = TOG.299 days = 150 } } # Safety catch flag clearing
 			custom_tooltip = {
 				text = prepare_nerge
 				hidden_tooltip = { 
@@ -445,12 +657,32 @@ decisions = {
 					scaled_wealth = 3.0
 				}
 			}
+			modifier = {
+				factor = 0
+				trait = craven
+			}
+			modifier = {
+				factor = 0
+				NOT = { martial = 10 }
+			}	
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}
 		}
 	}	
 	
 	hold_blot = {
 		is_high_prio = yes
 		potential = {
+			has_global_flag = project_balance
+			had_global_flag = { flag = project_balance days = 1 }
 			has_dlc = "The Old Gods"
 			is_ruler = yes
 			age = 16
@@ -461,6 +693,7 @@ decisions = {
 			}
 			NOT = { has_character_modifier = held_blot_timer }
 			NOT = {	has_character_flag = holding_blot }
+			NOT = {	has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -473,10 +706,14 @@ decisions = {
 			}
 			scaled_wealth = 0.20
 			prisoner = no
+			NOT = { trait = in_hiding }
 		}
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_blot
+			set_character_flag = recent_minor_decision
+			set_character_flag = do_not_disturb
+			hidden_tooltip = { character_event = { id = TOG.699 days = 150 } } # Safety catch flag clearing
 			custom_tooltip = {
 				text = prepare_blot
 				hidden_tooltip = { 
@@ -496,6 +733,24 @@ decisions = {
 					scaled_wealth = 3.0
 				}
 			}
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+			modifier = {
+				factor = 0
+				NOT = { diplomacy = 10 }
+			}	
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}
 		}
 	}	
 	
@@ -511,6 +766,7 @@ decisions = {
 			}
 			NOT = { has_character_modifier = held_ukon_juhla_timer }
 			NOT = {	has_character_flag = holding_ukon_juhla }
+			NOT = {	has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -523,10 +779,14 @@ decisions = {
 			}
 			scaled_wealth = 0.20
 			prisoner = no
+			NOT = { trait = in_hiding }
 		}
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_ukon_juhla
+			set_character_flag = recent_minor_decision
+			set_character_flag = do_not_disturb
+			hidden_tooltip = { character_event = { id = TOG.899 days = 150 } } # Safety catch flag clearing
 			custom_tooltip = {
 				text = prepare_ukon_juhla
 				hidden_tooltip = { 
@@ -546,6 +806,24 @@ decisions = {
 					scaled_wealth = 3.0
 				}
 			}
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+			modifier = {
+				factor = 0
+				NOT = { diplomacy = 10 }
+			}	
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}
 		}
 	}
 	
@@ -561,6 +839,7 @@ decisions = {
 			}
 			NOT = { has_character_modifier = held_uzgavenes_timer }
 			NOT = {	has_character_flag = holding_uzgavenes }
+			NOT = {	has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -573,10 +852,14 @@ decisions = {
 			}
 			scaled_wealth = 0.20
 			prisoner = no
+			NOT = { trait = in_hiding }
 		}
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_uzgavenes
+			set_character_flag = recent_minor_decision
+			set_character_flag = do_not_disturb
+			hidden_tooltip = { character_event = { id = TOG.899 days = 150 } } # Safety catch flag clearing
 			custom_tooltip = {
 				text = prepare_uzgavenes
 				hidden_tooltip = { 
@@ -596,6 +879,24 @@ decisions = {
 					scaled_wealth = 3.0
 				}
 			}
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+			modifier = {
+				factor = 0
+				NOT = { diplomacy = 10 }
+			}	
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}
 		}
 	}
 	
@@ -611,6 +912,7 @@ decisions = {
 			}
 			NOT = { has_character_modifier = held_jarilo_timer }
 			NOT = {	has_character_flag = holding_jarilo }
+			NOT = {	has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -623,10 +925,14 @@ decisions = {
 			}
 			scaled_wealth = 0.20
 			prisoner = no
+			NOT = { trait = in_hiding }
 		}
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_jarilo
+			set_character_flag = recent_minor_decision
+			set_character_flag = do_not_disturb
+			hidden_tooltip = { character_event = { id = TOG.899 days = 150 } } # Safety catch flag clearing
 			custom_tooltip = {
 				text = prepare_jarilo
 				hidden_tooltip = { 
@@ -646,12 +952,32 @@ decisions = {
 					scaled_wealth = 3.0
 				}
 			}
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+			modifier = {
+				factor = 0
+				NOT = { diplomacy = 10 }
+			}	
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}
 		}
 	}
 	
 	celebrate_passover = {
 		is_high_prio = yes
 		potential = {
+			has_global_flag = project_balance
+			had_global_flag = { flag = project_balance days = 1 }
 			has_dlc = "Sons of Abraham"
 			is_ruler = yes
 			age = 16
@@ -659,6 +985,7 @@ decisions = {
 			religion_group = jewish_group
 			NOT = { has_character_modifier = held_passover_timer }
 			NOT = {	has_character_flag = holding_passover }
+			NOT = {	has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -671,10 +998,14 @@ decisions = {
 			}
 			scaled_wealth = 0.20
 			prisoner = no
+			NOT = { trait = in_hiding }
 		}
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_passover
+			set_character_flag = recent_minor_decision
+			set_character_flag = do_not_disturb
+			hidden_tooltip = { character_event = { id = SoA.599 days = 150 } } # Safety catch flag clearing
 			custom_tooltip = {
 				text = passover_celebrations
 				hidden_tooltip = { 
@@ -694,87 +1025,1322 @@ decisions = {
 					scaled_wealth = 3.0
 				}
 			}
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+			modifier = {
+				factor = 0
+				NOT = { diplomacy = 10 }
+			}	
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}
 		}
 	}	
 	
-	borrow_money_jews = {
+	# borrow_money_jews = {
+		# potential = {
+			# OR = {
+				# religion_group = christian
+				# religion_group = muslim
+				# religion_group = zoroastrian_group
+			# }	
+			# NOT = { 
+				# religion_group = jewish_group
+				# has_character_modifier = expelled_jewish
+				# top_liege = { has_character_modifier = expelled_jewish }
+			# }
+			# NOT = { has_character_modifier = borrowed_from_jews }
+			# has_dlc = "Sons of Abraham"
+			# is_playable = yes
+			# prisoner = no
+		# }
+		
+		# allow = {
+		# }
+		
+		# effect = {
+			# add_character_modifier = {
+				# name = borrowed_from_jews
+				# duration = -1
+				# inherit = yes
+			# }
+			# wealth = 300
+		# }
+		
+		# revoke_allowed = {
+			# always = no
+		# }
+		
+		# ai_will_do = {
+			# factor = 1
+			# modifier = {
+				# factor = 0
+				# wealth = 0
+				# war = no
+			# }
+			# modifier = {
+				# factor = 0
+				# wealth = 200
+				# war = yes
+			# }			
+			# modifier = {
+				# factor = 0.01 # Slow it down
+			# }
+		# }
+	# }
+	# repay_money_jews = {
+		# potential = {	
+			# NOT = { 
+				# has_character_modifier = expelled_jewish
+			# }
+			# has_character_modifier = borrowed_from_jews
+			# has_dlc = "Sons of Abraham"
+		# }
+		
+		# allow = {
+			# wealth = 350
+		# }
+		
+		# effect = {
+			# remove_character_modifier = borrowed_from_jews
+			# wealth = -350
+		# }
+		
+		# revoke_allowed = {
+			# always = no
+		# }
+		
+		# ai_will_do = {
+			# factor = 1
+			# modifier = {
+				# factor = 0
+				# NOT = { wealth = 450 }
+			# }
+			# modifier = {
+				# factor = 0.1 # Slow it down
+			# }
+		# }
+	# }
+
+	become_kshatriya = {
+		is_high_prio = yes
 		potential = {
+			is_ruler = yes
+			is_adult = yes
+			religion = hindu
 			OR = {
-				religion_group = christian
-				religion_group = muslim
-				religion_group = zoroastrian_group
-			}	
-			NOT = { 
-				religion_group = jewish_group
-				has_character_modifier = expelled_jewish
-				top_liege = { has_character_modifier = expelled_jewish }
+				is_feudal = yes
+				is_tribal = yes
 			}
-			NOT = { has_character_modifier = borrowed_from_jews }
-			has_dlc = "Sons of Abraham"
-			is_playable = yes
-			age = 16
-			prisoner = no
+			has_dlc = "Rajas of India"
+			NOT = { trait = kshatriya }
 		}
 		
 		allow = {
-		}
-		
-		effect = {
-			add_character_modifier = {
-				name = borrowed_from_jews
-				duration = -1
-				inherit = yes
+			OR = {
+				trait = brahmin
+				piety = 200
 			}
-			wealth = 300
+			OR = {
+				scaled_wealth = 6
+				AND = {
+					learning = 12
+					scaled_wealth = 3
+				}
+			}
+		}
+
+		effect = {
+			if = {
+				limit = { learning = 12 }
+				scaled_wealth = -3
+			}
+			if = {
+				limit = { NOT = { learning = 12 } }
+				scaled_wealth = -6
+			}
+			if = {
+				limit = { NOT = { trait = brahmin } }
+				piety = -200
+			}
+			
+			prestige = 50
+			add_trait = kshatriya
+			hidden_tooltip = {
+				top_liege = {
+					any_realm_character = {
+						limit = {
+							religion = hindu
+							is_adult = yes
+							NOT = { character = ROOT }
+							NOT = { trait = cynical }
+						}
+						opinion = {
+							modifier = opinion_changed_caste
+							who = ROOT
+							years = 100
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				chronicle = {
+					entry = CHRONICLE_BECAME_KSHATRIYA
+					picture = GFX_evt_emissary_indo_aryan_group
+				}
+			}
 		}
 		
 		revoke_allowed = {
 			always = no
 		}
-		
 		ai_will_do = {
 			factor = 1
 			modifier = {
-				factor = 0
-				wealth = 0
-			}
-			modifier = {
-				factor = 0.01 # Slow it down
+				factor = 0.1
 			}
 		}
 	}
-	repay_money_jews = {
-		potential = {	
-			NOT = { 
-				has_character_modifier = expelled_jewish
+
+	hold_diwali_feast_hindu = {
+		potential = {
+			has_dlc = "Rajas of India"
+			is_ruler = yes
+			OR = {
+				is_feudal = yes
+				is_tribal = yes
 			}
-			has_character_modifier = borrowed_from_jews
-			has_dlc = "Sons of Abraham"
+			prisoner = no
+			religion = hindu
+			NOT = { trait = incapable }
+			NOT = { has_character_modifier = patron_kali }
+			NOT = {
+				has_character_modifier = holding_diwali_feast
+			}
+			NOT = {
+				has_character_modifier = holding_kali_puja_feast
+			}
+			NOT = {
+				has_character_modifier = large_feast_timer
+			}
+			NOT = {
+				has_character_modifier = fabulous_feast
+			}
+			NOT = {
+				has_character_flag = guest_diwali_feast_started
+			}
+			NOT = {
+				liege = {
+					has_character_modifier = holding_diwali_feast
+					has_character_modifier = holding_kali_puja_feast
+				}
+			}
+			num_of_vassals = 1
+			NOT = { has_character_flag = do_not_disturb }
 		}
-		
 		allow = {
-			wealth = 350
+			war = no
+			any_demesne_title = {
+				is_occupied = no
+			}
+			prisoner = no
+			NOT = { trait = in_hiding }
+			scaled_wealth = 0.2
+			month = 9
+			prestige = 100
 		}
-		
 		effect = {
-			remove_character_modifier = borrowed_from_jews
-			wealth = -350
+			scaled_wealth = -0.2
+			add_character_modifier = {
+				name = holding_diwali_feast
+				duration = 365
+			}
+			set_character_flag = recent_minor_decision
+			set_character_flag = do_not_disturb
+			hidden_tooltip = { character_event = { id = RoI.1000 } }
 		}
-		
 		revoke_allowed = {
 			always = no
 		}
-		
 		ai_will_do = {
-			factor = 1
+			factor = 0.1
 			modifier = {
 				factor = 0
-				NOT = { wealth = 450 }
+				NOT = {
+					scaled_wealth = 2
+				}
 			}
 			modifier = {
-				factor = 0.1 # Slow it down
+				factor = 0.5
+				trait = shy
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { diplomacy = 10 }
+			}	
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}	
+			modifier = {
+				factor = 0
+				NOT = { age = 30 }
+			}			
+		}
+	}
+
+	hold_diwali_feast_buddhist = {
+		potential = {
+			has_dlc = "Rajas of India"
+			is_ruler = yes
+			OR = {
+				is_feudal = yes
+				is_tribal = yes
+			}
+			prisoner = no
+			religion = buddhist
+			NOT = { trait = incapable }
+			NOT = {
+				has_character_modifier = holding_diwali_feast
+			}
+			NOT = {
+				has_character_modifier = holding_kali_puja_feast
+			}
+			NOT = {
+				has_character_modifier = large_feast_timer
+			}
+			NOT = {
+				has_character_modifier = fabulous_feast
+			}
+			NOT = {
+				has_character_flag = guest_diwali_feast_started
+			}
+			NOT = {
+				liege = {
+					has_character_modifier = holding_diwali_feast
+					has_character_modifier = holding_kali_puja_feast
+				}
+			}		
+			num_of_vassals = 1
+			NOT = { has_character_flag = do_not_disturb }
+		}
+		allow = {
+			war = no
+			any_demesne_title = {
+				is_occupied = no
+			}
+			prisoner = no
+			NOT = { trait = in_hiding }
+			scaled_wealth = 0.2
+			month = 9
+			prestige = 100
+		}
+		effect = {
+			scaled_wealth = -0.2
+			add_character_modifier = {
+				name = holding_diwali_feast
+				duration = 365
+			}
+			set_character_flag = recent_minor_decision
+			set_character_flag = do_not_disturb
+			
+			hidden_tooltip = { character_event = { id = RoI.1000 } }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0.1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					scaled_wealth = 2
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = shy
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { diplomacy = 10 }
+			}	
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = { age = 30 }
+			}
+		}
+	}
+
+	hold_diwali_feast_jain = {
+		potential = {
+			has_dlc = "Rajas of India"
+			is_ruler = yes
+			OR = {
+				is_feudal = yes
+				is_tribal = yes
+			}
+			prisoner = no
+			religion = jain
+			NOT = { trait = incapable }
+			NOT = {
+				has_character_modifier = holding_diwali_feast
+			}
+			NOT = {
+				has_character_modifier = holding_kali_puja_feast
+			}
+			NOT = {
+				has_character_modifier = large_feast_timer
+			}
+			NOT = {
+				has_character_modifier = fabulous_feast
+			}
+			NOT = {
+				has_character_flag = guest_diwali_feast_started
+			}
+			NOT = {
+				liege = {
+					has_character_modifier = holding_diwali_feast
+					has_character_modifier = holding_kali_puja_feast
+				}
+			}			
+			num_of_vassals = 1
+			NOT = { has_character_flag = do_not_disturb }
+		}
+		allow = {
+			war = no
+			any_demesne_title = {
+				is_occupied = no
+			}
+			prisoner = no
+			NOT = { trait = in_hiding }
+			scaled_wealth = 0.2
+			month = 9
+			prestige = 100
+		}
+		effect = {
+			scaled_wealth = -0.2
+			add_character_modifier = {
+				name = holding_diwali_feast
+				duration = 365
+			}
+			set_character_flag = recent_minor_decision
+			set_character_flag = do_not_disturb
+			
+			hidden_tooltip = { character_event = { id = RoI.1000 } }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0.1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					scaled_wealth = 2
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = shy
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { diplomacy = 10 }
+			}	
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = { age = 30 }
+			}
+		}
+	}
+
+	hold_diwali_feast_kali_puja = {
+		potential = {
+			has_dlc = "Rajas of India"
+			is_ruler = yes
+			OR = {
+				is_feudal = yes
+				is_tribal = yes
+			}
+			prisoner = no
+			religion = hindu
+			NOT = { trait = incapable }
+			OR = {
+				has_character_modifier = patron_kali
+				capital_scope = { kingdom = { title = k_bengal } }
+				capital_scope = { kingdom = { title = k_kamarupa } }
+				capital_scope = { kingdom = { title = k_orissa } }
+				capital_scope = { kingdom = { title = k_bihar } }
+			}
+			NOT = {
+				has_character_modifier = holding_diwali_feast
+			}
+			NOT = {
+				has_character_modifier = holding_kali_puja_feast
+			}
+			NOT = {
+				has_character_modifier = large_feast_timer
+			}
+			NOT = {
+				has_character_modifier = fabulous_feast
+			}
+			NOT = {
+				has_character_flag = guest_diwali_feast_started
+			}
+			NOT = {
+				liege = {
+					has_character_modifier = holding_diwali_feast
+					has_character_modifier = holding_kali_puja_feast
+				}
+			}			
+			num_of_vassals = 1
+			NOT = { has_character_flag = do_not_disturb }
+		}
+		allow = {
+			war = no
+			any_demesne_title = {
+				is_occupied = no
+			}
+			prisoner = no
+			NOT = { trait = in_hiding }
+			scaled_wealth = 0.2
+			month = 9
+			prestige = 100
+		}
+		effect = {
+			scaled_wealth = -0.2
+			add_character_modifier = {
+				name = holding_kali_puja_feast
+				duration = 365
+			}
+			set_character_flag = recent_minor_decision
+			set_character_flag = do_not_disturb
+			hidden_tooltip = { character_event = { id = RoI.1000 } }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0.1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					scaled_wealth = 2
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = shy
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { diplomacy = 10 }
+			}	
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = { age = 30 }
+			}		
+		}
+	}
+
+	find_guru = {
+		potential = {
+			age = 16
+			is_ruler = yes
+			OR = {
+				is_feudal = yes
+				is_tribal = yes
+			}
+			prisoner = no
+			religion_group = indian_group
+			NOT = { has_character_flag = looking_for_guru }
+			NOT = { has_character_flag = found_guru }
+			NOT = {
+				any_courtier = {
+					has_minor_title = title_guru
+				}
+			}
+		}
+		allow = {
+			prisoner = no
+			wealth = 50
+			prestige = 300
+		}
+		effect = {
+			wealth = -50
+			set_character_flag = looking_for_guru
+			character_event = { id = RoI.3000 }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				trait = cynical
+			}
+			modifier = {
+				factor = 0
+				NOT = { wealth = 200 }
 			}
 		}
 	}
 	
+	hold_zun_feast = {
+		potential = {
+			has_dlc = "Charlemagne"
+			is_ruler = yes
+			OR = {
+				is_feudal = yes
+				is_tribal = yes
+			}
+			prisoner = no
+			OR = {
+				religion = zun_pagan
+				religion = zun_pagan_reformed
+			}
+			NOT = { trait = incapable }
+			num_of_vassals = 1
+			NOT = {
+				has_character_modifier = holding_zun_feast
+			}
+			NOT = {
+				has_character_modifier = holding_diwali_feast
+			}
+			NOT = {
+				has_character_modifier = holding_kali_puja_feast
+			}
+			NOT = {
+				has_character_modifier = large_feast_timer
+			}
+			NOT = {
+				has_character_modifier = fabulous_feast
+			}
+			NOT = {
+				has_character_flag = guest_zun_feast_started
+			}
+			NOT = {
+				liege = { has_character_modifier = holding_zun_feast }
+			}
+			NOT = { has_character_flag = do_not_disturb }
+		}
+		allow = {
+			war = no
+			any_demesne_title = {
+				is_occupied = no
+			}
+			prisoner = no
+			NOT = { trait = in_hiding }
+			scaled_wealth = 0.2
+			month = 3
+			NOT = { month = 9 }
+			prestige = 100
+		}
+		effect = {
+			scaled_wealth = -0.2
+			add_character_modifier = {
+				name = holding_zun_feast
+				duration = 365
+			}
+			set_character_flag = recent_minor_decision
+			set_character_flag = do_not_disturb
+			hidden_tooltip = { character_event = { id = CM.4100 } }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 0
+				NOT = {
+					scaled_wealth = 2
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = shy
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { diplomacy = 10 }
+			}	
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}	
+			modifier = {
+				factor = 0
+				NOT = { age = 30 }
+			}			
+		}
+	}
+	
+	go_into_hiding = {
+		potential = {
+			is_ruler = yes
+			NOT = { trait = in_hiding }
+			NOT = { has_character_flag = do_not_disturb }
+			OR = {
+				ai = no
+				OR = {
+					trait = amateurish_plotter
+					trait = flamboyant_schemer
+					trait = intricate_webweaver
+					trait = elusive_shadow
+				}
+			}
+		}
+		allow = {
+			in_command = no
+			prisoner = no
+			has_job_title = no
+			custom_tooltip = {
+				text = is_target_of_murder_plot_tooltip
+				hidden_tooltip = {
+					OR = {
+						has_character_modifier = suspected_murder_plot
+						any_known_plotter = {
+							target = ROOT
+							OR = {
+								has_plot = plot_kill_character
+								has_plot = plot_kill_spouse
+							}
+						}
+					}
+				}
+			}
+			custom_tooltip = {
+				text = recently_went_out_of_hiding_tooltip
+				hidden_tooltip = {
+					NOT = { has_character_modifier = went_out_of_hiding_timer }
+				}
+			}
+		}
+		effect = {
+			set_character_flag = do_not_disturb
+			custom_tooltip = { text = go_into_hiding_info_tooltip }
+			add_trait = in_hiding
+			hidden_tooltip = {                    # Notify player and close family and plotters
+				ROOT = {
+					any_plotter = {
+						target = ROOT
+						limit = {
+							NOT = { has_character_flag = murder_in_motion }
+							OR = {
+								has_plot = plot_kill_character
+								has_plot = plot_kill_spouse
+							}
+						}
+						character_event = { id = CM.6000 }
+					}
+					any_plotter = {
+						target = ROOT
+						limit = {
+							has_character_flag = murder_in_motion
+							OR = {
+								has_plot = plot_kill_character
+								has_plot = plot_kill_spouse
+							}
+						}
+						character_event = { id = CM.6180 }
+					}
+					any_plotter = {
+						target = ROOT
+						limit = {
+							OR = {
+								has_plot = plot_kill_character
+								has_plot = plot_kill_spouse
+							}
+						}
+						any_plot_backer = {
+							character_event = { id = CM.6000 }
+						}
+					}
+				}
+				any_spouse = {
+					limit = {
+						NOT = { plot_target_char = { character = ROOT } }
+						NOT = { any_backed_character = { plot_target_char = { character = ROOT } } }
+						NOT = { is_rival = ROOT }
+					}
+					character_event = { id = CM.6000 }
+				}
+				any_child = {
+					limit = {
+						NOT = { plot_target_char = { character = ROOT } }
+						NOT = { any_backed_character = { plot_target_char = { character = ROOT } } }
+						NOT = { is_rival = ROOT }
+					}
+					character_event = { id = CM.6000 }
+				}
+				any_lover = {
+					limit = {
+						NOT = { plot_target_char = { character = ROOT } }
+						NOT = { any_backed_character = { plot_target_char = { character = ROOT } } }
+						NOT = { is_rival = ROOT }
+						NOT = { spouse = { character = ROOT } }
+					}
+					character_event = { id = CM.6000 }
+				}
+				any_sibling = {
+					limit = {
+						ROOT = {
+							NOT = { is_plot_target_of = THIS }
+							NOT = { any_backed_character = { plot_target_char = { character = ROOT } } }
+							NOT = { is_rival = THIS }
+						}
+					}
+					character_event = { id = CM.6000 }
+				}
+				any_rival = {
+					limit = {
+						NOT = { plot_target_char = { character = ROOT } }
+						NOT = { any_backed_character = { plot_target_char = { character = ROOT } } }
+					}
+					character_event = { id = CM.6000 }
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1 
+			
+			modifier = {
+				factor = 0
+				ROOT = {
+					any_plotter = {
+						target = ROOT
+						is_primary_heir = yes
+						ai = no
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+			}
+			modifier = {
+				factor = 0.1
+				age = 65
+			}
+			modifier = {
+				factor = 0.1
+				trait = brave
+			}
+			modifier = {
+				factor = 2
+				trait = depressed
+			}
+			modifier = {
+				factor = 5
+				trait = craven
+			}
+			modifier = {
+				factor = 10
+				trait = paranoid
+			}
+		}
+	}
+	
+	come_out_of_hiding = {
+		potential = {
+			is_ruler = yes
+			trait = in_hiding
+		}
+		allow = {
+			trait = in_hiding
+			OR = {
+				OR = {
+					age = 16
+					NOT = {	trait = incapable }
+				}
+				regent = {
+					NOT = { trait = deceitful }
+					NOT = { trait = ambitious }
+					NOT = { is_rival = ROOT }
+				}
+			}
+		}
+		effect = {
+			add_character_modifier = {
+				name = went_out_of_hiding_timer
+				duration = 180
+				hidden = yes
+			}
+			clr_character_flag = do_not_disturb
+			custom_tooltip = { text = come_out_of_hiding_info_tooltip }
+			remove_trait = in_hiding
+			hidden_tooltip = {                    # Notify player and close family and plotters
+				ROOT = {
+					any_plotter = {
+						target = ROOT
+						limit = {
+							OR = {
+								has_plot = plot_kill_character
+								has_plot = plot_kill_spouse
+							}
+						}
+						character_event = { id = CM.6001 }
+					}
+				}
+				any_spouse = {
+					limit = {
+						ROOT = {
+							NOT = { is_plot_target_of = THIS }
+						}
+					}
+					character_event = { id = CM.6001 }
+				}
+				any_child = {
+					limit = {
+						ROOT = {
+							NOT = { is_plot_target_of = THIS }
+						}
+					}
+					character_event = { id = CM.6001 }
+				}
+				any_lover = {
+					limit = {
+						ROOT = {
+							NOT = { is_plot_target_of = THIS }
+						}
+						NOT = { spouse = { character = ROOT } }
+					}
+					character_event = { id = CM.6001 }
+				}
+				any_sibling = {
+					limit = {
+						ROOT = {
+							NOT = { is_plot_target_of = THIS }
+						}
+					}
+					character_event = { id = CM.6001 }
+				}
+				any_rival = {
+					limit = {
+						ROOT = {
+							NOT = { is_plot_target_of = THIS }
+						}
+					}
+					character_event = { id = CM.6001 }
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.1
+				trait = paranoid
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					ROOT = {
+						any_plotter = {
+							target = ROOT
+							is_primary_heir = yes
+							ai = no
+						}
+					}
+				}
+				OR = {
+					has_character_modifier = suspected_murder_plot
+					any_known_plotter = {
+						target = ROOT
+						OR = {
+							has_plot = plot_kill_character
+							has_plot = plot_kill_spouse
+						}
+					}
+				}
+			}
+		}
+	}
+
+	send_spouse_into_hiding = {
+		potential = {
+			is_ruler = yes
+			spouse = {
+				NOT = { trait = in_hiding }
+				NOT = { is_ruler = yes }
+				liege = { character = ROOT }
+				NOT = { has_character_flag = do_not_disturb }
+			}
+			NOT = {
+				spouse = { is_plot_target_of = ROOT }
+				OR = {
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+				}
+			}
+			OR = {
+				ai = no
+				OR = {
+					trait = amateurish_plotter
+					trait = flamboyant_schemer
+					trait = intricate_webweaver
+					trait = elusive_shadow
+				}
+			}
+		}
+		allow = {
+			spouse = {
+				in_command = no
+				prisoner = no
+				has_job_title = no
+				NOT = { is_ruler = yes }
+				OR = {
+					custom_tooltip = {
+						text = is_target_of_murder_plot_tooltip
+						hidden_tooltip = {
+							OR = {
+								has_character_modifier = suspected_murder_plot
+								FROM = {
+									any_known_plotter = {
+										target = PREV
+										OR = {
+											has_plot = plot_kill_character
+											has_plot = plot_kill_spouse
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				custom_tooltip = {
+					text = recently_went_out_of_hiding_tooltip
+					hidden_tooltip = {
+						NOT = { has_character_modifier = went_out_of_hiding_timer }
+					}
+				}
+			}
+		}
+		effect = {
+			spouse = {
+				set_character_flag = do_not_disturb
+				custom_tooltip = { text = go_into_hiding_info_tooltip }
+				add_trait = in_hiding
+				hidden_tooltip = {                    # Notify player and close family and plotters
+					ROOT = {
+						any_plotter = {
+							target = ROOT
+							limit = {
+								NOT = { has_character_flag = murder_in_motion }
+								OR = {
+									has_plot = plot_kill_character
+									has_plot = plot_kill_spouse
+								}
+							}
+							character_event = { id = CM.6002 }
+						}
+					}
+					ROOT = {
+						any_plotter = {
+							target = ROOT
+							limit = {
+								has_character_flag = murder_in_motion
+								OR = {
+									has_plot = plot_kill_character
+									has_plot = plot_kill_spouse
+								}
+							}
+							character_event = { id = CM.6180 }
+						}
+					}
+					ROOT = {
+						any_plotter = {
+							target = ROOT
+							limit = {
+								OR = {
+									has_plot = plot_kill_character
+									has_plot = plot_kill_spouse
+								}
+							}
+							any_plot_backer = {
+								character_event = { id = CM.6002 }
+							}
+						}
+					}
+					any_child = {
+						limit = {
+							NOT = { plot_target_char = { character = ROOT } }
+							NOT = { any_backed_character = { plot_target_char = { character = ROOT } } }
+							NOT = { is_rival = ROOT }
+						}
+						character_event = { id = CM.6002 }
+					}
+					any_lover = {
+						limit = {
+							NOT = { plot_target_char = { character = ROOT } }
+							NOT = { any_backed_character = { plot_target_char = { character = ROOT } } }
+							NOT = { is_rival = ROOT }
+							NOT = { spouse = { character = ROOT } }
+						}
+						character_event = { id = CM.6002 }
+					}
+					any_sibling = {
+						limit = {
+							NOT = { plot_target_char = { character = ROOT } }
+							NOT = { any_backed_character = { plot_target_char = { character = ROOT } } }
+							NOT = { is_rival = ROOT }
+						}
+						character_event = { id = CM.6002 }
+					}
+					any_rival = {
+						limit = {
+							NOT = { spouse = { character = PREV } }
+							NOT = { plot_target_char = { character = ROOT } }
+							NOT = { any_backed_character = { plot_target_char = { character = ROOT } } }
+						}
+						character_event = { id = CM.6002 }
+					}
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1 
+			
+			modifier = {
+				factor = 0.1
+			}
+			modifier = {
+				factor = 0.1
+				spouse = {
+					age = 65
+				}
+			}
+			modifier = {
+				factor = 0.1
+				spouse = { 
+					trait = pregnant 
+					NOT = {
+						father_of_unborn = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { 
+					FROM = { 
+						trait = in_hiding 
+					} 
+				}
+			}
+			modifier = {
+				factor = 0.5
+				NOT = {
+					opinion = {
+						who = spouse
+						value = -24
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				opinion = {
+					who = spouse
+					value = 25
+				}
+			}
+			modifier = {
+				factor = 5
+				trait = in_hiding
+			}
+			modifier = {
+				factor = 10
+				trait = paranoid
+			}
+			modifier = {
+				factor = 10
+				spouse = { 
+					trait = pregnant 
+					father_of_unborn = {
+						character = ROOT
+					}
+				}
+			}
+		}
+	}
+
+	take_spouse_out_of_hiding = {
+		potential = {
+			is_ruler = yes
+			spouse = {
+				trait = in_hiding
+				liege = { character = ROOT }
+				NOT = { is_ruler = yes }
+			}
+		}
+		allow = {
+			spouse = {
+				trait = in_hiding
+				liege = { character = ROOT }
+				NOT = { is_ruler = yes }
+			}
+		}
+		effect = {
+			spouse = {
+				add_character_modifier = {
+					name = went_out_of_hiding_timer
+					duration = 180
+					hidden = yes
+				}
+			}
+			spouse = { clr_character_flag = do_not_disturb }
+			spouse = {
+				custom_tooltip = { text = come_out_of_hiding_info_tooltip }
+			}
+			spouse = { remove_trait = in_hiding }
+			spouse = {
+				hidden_tooltip = {                    # Notify player and close family and plotters
+					ROOT = {
+						any_plotter = {
+							target = ROOT
+							limit = {
+								spouse = { NOT = { character = PREV } }
+								OR = {
+									has_plot = plot_kill_character
+									has_plot = plot_kill_spouse
+								}
+							}
+							character_event = { id = CM.6003 }
+						}
+					}
+					any_child = {
+						limit = {
+							ROOT = {
+								NOT = { is_plot_target_of = THIS }
+							}
+						}
+						character_event = { id = CM.6003 }
+					}
+					any_lover = {
+						limit = {
+							PREV = {
+								NOT = { is_plot_target_of = THIS }
+							}
+							NOT = { spouse = { character = PREV } }
+						}
+						character_event = { id = CM.6003 }
+					}
+					any_sibling = {
+						limit = {
+							ROOT = {
+								NOT = { is_plot_target_of = THIS }
+							}
+						}
+						character_event = { id = CM.6003 }
+					}
+					any_rival = {
+						limit = {
+							spouse = { NOT = { character = PREV } }
+							ROOT = {
+								NOT = { is_plot_target_of = THIS }
+							}
+						}
+						character_event = { id = CM.6003 }
+					}
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.1
+				trait = paranoid
+			}
+			modifier = {
+				factor = 0
+				spouse = {
+					OR = {
+						has_character_modifier = suspected_murder_plot
+						FROM = {
+							any_known_plotter = {
+								target = PREV
+								OR = {
+									has_plot = plot_kill_character
+									has_plot = plot_kill_spouse
+								}
+							}
+						}
+					}
+				}
+			}			
+		}
+	}
 }
+	

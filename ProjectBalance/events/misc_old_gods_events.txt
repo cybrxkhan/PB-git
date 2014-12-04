@@ -183,7 +183,7 @@ character_event = {
 					province = PREV
 					owner = ROOT
 					match_character = ROOT
-					match_mult = 0.2
+					match_mult = 0.1
 					earmark = prepared_invasion
 					attrition = 1.0
 					cannot_inherit = yes
@@ -192,7 +192,8 @@ character_event = {
 					province = closest
 					owner = ROOT
 					match_character = ROOT
-					match_mult = 0.2
+					match_mult = 0.1
+					match_min = 7
 					earmark = prepared_invasion
 					cannot_inherit = yes
 				}
@@ -308,7 +309,7 @@ character_event = {
 					province = PREV
 					owner = ROOT
 					match_character = ROOT
-					match_mult = 0.3
+					match_mult = 0.15
 #					earmark = prepared_invasion
 					attrition = 1.0
 					cannot_inherit = yes
@@ -320,7 +321,8 @@ character_event = {
 			province = closest
 			owner = ROOT
 			match_character = ROOT
-			match_mult = 0.3
+			match_mult = 0.15
+			match_min = 10
 			earmark = prepared_invasion
 			cannot_inherit = yes
 		}
@@ -417,7 +419,7 @@ character_event = {
 					province = PREV
 					owner = ROOT
 					match_character = ROOT
-					match_mult = 0.125
+					match_mult = 0.075
 					earmark = prepared_invasion
 					attrition = 1.0
 					cannot_inherit = yes
@@ -426,7 +428,8 @@ character_event = {
 					province = closest
 					owner = ROOT
 					match_character = ROOT
-					match_mult = 0.125
+					match_mult = 0.075
+					match_min = 5
 					earmark = prepared_invasion
 					cannot_inherit = yes
 				}
@@ -541,7 +544,7 @@ character_event = {
 					province = PREV
 					owner = ROOT
 					match_character = ROOT
-					match_mult = 0.75
+					match_mult = 0.6
 					earmark = prepared_invasion
 					attrition = 1.0
 					cannot_inherit = yes
@@ -550,7 +553,7 @@ character_event = {
 					province = PREV
 					owner = ROOT
 					match_character = ROOT
-					match_mult = 0.75
+					match_mult = 0.6
 					earmark = prepared_invasion
 					attrition = 1.0
 					cannot_inherit = yes
@@ -559,7 +562,7 @@ character_event = {
 					province = PREV
 					owner = ROOT
 					match_character = ROOT
-					match_mult = 0.75
+					match_mult = 0.6
 					earmark = prepared_invasion
 					attrition = 1.0
 					cannot_inherit = yes
@@ -624,7 +627,7 @@ character_event = {
 					province = PREV
 					owner = ROOT
 					match_character = ROOT
-					match_mult = 0.65
+					match_mult = 0.5
 					earmark = prepared_invasion
 					attrition = 1.0
 					cannot_inherit = yes
@@ -633,7 +636,7 @@ character_event = {
 					province = PREV
 					owner = ROOT
 					match_character = ROOT
-					match_mult = 0.65
+					match_mult = 0.5
 					earmark = prepared_invasion
 					attrition = 1.0
 					cannot_inherit = yes
@@ -642,7 +645,7 @@ character_event = {
 					province = PREV
 					owner = ROOT
 					match_character = ROOT
-					match_mult = 0.65
+					match_mult = 0.5
 					earmark = prepared_invasion
 					attrition = 1.0
 					cannot_inherit = yes
@@ -707,7 +710,7 @@ character_event = {
 					province = PREV
 					owner = ROOT
 					match_character = ROOT
-					match_mult = 0.65
+					match_mult = 0.5
 					earmark = prepared_invasion
 					attrition = 1.0
 					cannot_inherit = yes
@@ -716,7 +719,7 @@ character_event = {
 					province = PREV
 					owner = ROOT
 					match_character = ROOT
-					match_mult = 0.65
+					match_mult = 0.5
 					earmark = prepared_invasion
 					attrition = 1.0
 					cannot_inherit = yes
@@ -725,7 +728,7 @@ character_event = {
 					province = PREV
 					owner = ROOT
 					match_character = ROOT
-					match_mult = 0.65
+					match_mult = 0.5
 					earmark = prepared_invasion
 					attrition = 1.0
 					cannot_inherit = yes
@@ -788,6 +791,11 @@ narrative_event = {
 					de_jure_liege = k_hungary
 				}
 			}
+		}
+		k_hungary = {
+			grant_title = ROOT
+			copy_title_laws = k_magyar
+			copy_title_history = k_magyar
 		}
 		k_magyar = {
 			destroy_landed_title = THIS
@@ -1158,6 +1166,135 @@ character_event = {
 		k_germany = {
 			set_name=""
 			adjective=""
+		}
+	}
+}
+
+# Event where the sons of Lodbrok exact their revenge on Aella
+character_event = {
+	id = 62950
+	desc = OK
+	
+	hide_window = yes
+	
+	prisoner = yes
+	
+	trigger = {
+		character = 163103 # Aella
+		host = {
+			OR = {
+				character = 163108 # Björn Ironside
+				character = 163110 # Sigurd
+				character = 163111 # Ivar
+				character = 163112 # Halfdan
+				character = 163119 # Ubbe
+			}
+		}
+		culture = saxon
+		NOT = { has_character_flag = aella_punished }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_character_flag = aella_punished
+		host = {
+			character_event = { id = 62951 }
+		}
+	}
+}
+
+character_event = {
+	id = 62951
+	title = EVTNAME62951
+	desc = EVTDESC62951
+	
+	picture = GFX_evt_torture
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA62951 # Blood Eagle
+		ai_chance = {
+			factor = 100
+		}
+		FROM = {
+			death = {
+				death_reason = death_execution
+				killer = ROOT
+			}
+		}
+		prestige = 500
+	}
+	option = {
+		name = EVTOPTB62951 # Sacrifice
+		ai_chance = {
+			factor = 0
+		}
+		FROM = {
+			death = {
+				death_reason = death_sacrificed
+				killer = ROOT
+			}
+		}
+		piety = 250
+	}
+	option = {
+		name = EVTOPTC62951 # Blinding & Castration
+		ai_chance = {
+			factor = 0
+		}
+		
+		prestige = 500
+		add_trait = impaler
+		
+		tooltip = {
+			FROM = {
+				add_trait = eunuch
+				add_trait = blinded
+				add_trait = wounded
+			}
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = 62952 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD62951 # Other plans
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+
+character_event = {
+	id = 62952
+	title = EVTNAME62951
+	desc = EVTDESC62952
+	
+	picture = GFX_evt_torture
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA62952
+		add_trait = eunuch
+		add_trait = blinded
+		add_trait = wounded
+		
+		hidden_tooltip = {
+			opinion = {
+				who = FROM
+				modifier = opinion_hate
+				years = 100
+			}
 		}
 	}
 }

@@ -139,7 +139,7 @@ decisions = {
 			ruled_years = 10
 		}
 		effect = {
-			narrative_event = { id = meneth.427 tooltip = create_hre_tooltip }
+			narrative_event = { id = meneth.437 tooltip = create_hre_tooltip }
 			if = {
 				limit = { has_nickname = no }
 				give_nickname = nick_the_great
@@ -337,6 +337,14 @@ decisions = {
 			any_realm_province = {
 				has_province_modifier = baqt
 			}
+			OR = {
+				religion = miaphysite
+				AND = {
+					religion = orthodox
+					culture_group = east_african
+				}
+				religion_group = muslim
+			}
 		}
 		allow = {
 			OR = {
@@ -390,11 +398,56 @@ dynasty_decisions = {
 			set_character_flag = prisoner_exchange_attempted
 			FROM = { set_character_flag = prisoner_exchange_attempted }
 			host = {
-				character_event = { id = meneth.213 }
+				character_event = { id = pb_various.9 }
 			}
 		}
 		ai_will_do = {
 			factor = 1
+		}
+	}
+	#Bring player's children home (political marriages + misc. cases, esp. startup)
+	bring_child_home = {
+		is_high_prio = yes
+		potential = {
+			has_global_flag = project_balance
+			had_global_flag = { flag = project_balance days = 1 }
+			FROM = { ai = no }
+			is_child_of = FROM
+			liege = { NOT = { character = FROM } }
+			NOT = {
+				prisoner = yes
+				is_ruler = yes
+				is_adult = yes
+				is_married = yes
+			}
+		}
+		allow = {
+			is_child_of = FROM
+			NOT = {
+				prisoner = yes
+				is_ruler = yes
+				is_adult = yes
+				is_married = yes
+			}
+			# ^-- all previous allow triggers only present for informational purposes
+			liege = {
+				OR = {
+					# can't yank kids from another player unless you outrank the player
+					ai = yes
+					lower_tier_than = FROM
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = {
+				text = bring_child_home_ctt
+				hidden_tooltip = {
+					banish = FROM
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
 		}
 	}
 }

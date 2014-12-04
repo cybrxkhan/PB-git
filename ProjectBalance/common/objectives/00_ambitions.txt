@@ -13,17 +13,21 @@ obj_become_chancellor = {
 	expectation_of_liege = yes
 
 	allow = {
-		prisoner = no
-		is_adult = yes
-		is_councillor = no
-		liege = {
-			NOT = { character = ROOT }
-		}
+		# PB: Restrictions imported from PB's job_titles.txt
 		OR = {
 			is_female = no
+			AND = {
+				religion = cathar
+				liege = { religion = cathar }
+			}
+			has_character_flag = special_chancellor
 			liege = {
 				primary_title = {
-					has_law = true_cognatic_succession
+					OR = {
+						has_law = true_cognatic_succession
+						has_law = enatic_cognatic_succession
+						has_law = enatic_succession
+					}
 				}
 			}
 			AND = {
@@ -31,7 +35,15 @@ obj_become_chancellor = {
 				NOT = { liege = { religion_group = muslim } }
 			}
 		}
+		OR = {
+			is_adult = yes
+			has_character_flag = special_chancellor
+		}
+		prisoner = no
 		NOT = { trait = incapable }
+		# PB: End new restrictions
+		is_councillor = no
+		independent = no
 		diplomacy = 10
 	}
 	chance = {
@@ -136,18 +148,43 @@ obj_become_marshal = {
 	type = character
 	
 	allow = {
-		prisoner = no
-		is_adult = yes
-		is_councillor = no
-		independent = no
 		OR = {
+			# PB: Restrictions imported from PB's job_titles.txt
 			is_female = no
+			AND = {
+				religion = cathar
+				liege = { religion = cathar }
+			}
+			liege = {
+				primary_title = {
+					OR = {
+						has_law = enatic_cognatic_succession
+						has_law = enatic_succession
+					}
+				}
+			}
+			has_character_flag = special_marshal
 			AND = {
 				has_global_flag = gender_equality
 				NOT = { liege = { religion_group = muslim } }
 			}
 		}
+		OR = {
+			AND = {
+				OR = {
+					NOT = { religion = hindu }
+					trait = kshatriya
+				}
+				is_adult = yes
+			}
+			has_character_flag = special_marshal
+		}
+		prisoner = no
 		NOT = { trait = incapable }
+		NOT = { has_character_flag = guru }
+		# PB: End new restrictions
+		is_councillor = no
+		independent = no
 		martial = 10
 	}
 	chance = {
@@ -252,12 +289,14 @@ obj_become_treasurer = {
 	type = character
 	
 	allow = {
-		prisoner = no
-		is_adult = yes
-		is_councillor = no
-		independent = no
+		# PB: Restrictions imported from PB's job_titles.txt
 		OR = {
 			is_female = no
+			AND = {
+				religion = cathar
+				liege = { religion = cathar }
+			}
+			has_character_flag = special_treasurer
 			liege = {
 				primary_title = {
 					NOT = {
@@ -270,7 +309,20 @@ obj_become_treasurer = {
 				NOT = { liege = { religion_group = muslim } }
 			}
 		}
+		OR = {
+			is_female = no
+			NOT = { liege = { religion_group = muslim } }
+		}
+		OR = {
+			is_adult = yes
+			has_character_flag = special_treasurer
+		}
+		prisoner = no
 		NOT = { trait = incapable }
+		NOT = { has_character_flag = guru }
+		# PB: End new restrictions
+		is_councillor = no
+		independent = no
 		stewardship = 10
 	}
 	chance = {
@@ -382,11 +434,11 @@ obj_become_treasurer = {
 obj_become_spymaster = {
 	type = character
 	allow = {
-		prisoner = no
-		is_adult = yes
+		# PB: Restrictions imported from PB's job_titles.txt
+		NOT = { has_character_flag = guru }
+		# PB: End new restrictions
 		is_councillor = no
 		independent = no
-		NOT = { trait = incapable }
 		intrigue = 10
 	}
 	chance = {
@@ -499,57 +551,60 @@ obj_become_spiritual = {
 	type = character
 	
 	allow = {
-		prisoner = no
+		# PB: Restrictions imported from PB's job_titles.txt
 		is_adult = yes
-		is_councillor = no
-		independent = no
-		OR = {
-			is_female = no
-			AND = {
-				religion_group = pagan_group
-				NOT = { religion = aztec }
-				NOT = { religion = aztec_reformed}
-				NOT = { religion = tengri_pagan }
-				NOT = { religion = tengri_pagan_reformed}
-			}
-			AND = {
-				has_global_flag = gender_equality
-				NOT = { liege = { religion_group = muslim } }
-			}
-		}
-		learning = 10
-		
-		OR = {
-			NOT = { religion_group = muslim }
-			trait = detached_priest
-			trait = martial_cleric
-			trait = scholarly_theologian
-			trait = mastermind_theologian
-			NOT = { liege = { religion_group = muslim } }
-		}
-		
-		OR = {
-			is_theocracy = yes
-			liege = { religion_group = muslim }
-#			liege = { lower_tier_than = KING }
-			AND = {
-				is_ruler = no
-				NOT = { religion = orthodox }
-				NOT = { is_heresy_of = orthodox }
-				NOT = { religion = miaphysite }
-				NOT = { is_heresy_of = miaphysite }
-			}
-		}
-		
+		prisoner = no
 		liege = {
 			religion = ROOT
 		}
 		
 		OR = {
-			is_ruler = no
-			is_theocracy = yes
+			AND = {
+				is_female = no
+				OR = {
+					NOT = { religion = hindu }
+					trait = brahmin
+				}
+			}
+			AND = {
+				religion_group = pagan_group
+				NOT = { religion = aztec }
+				NOT = { religion = aztec_reformed }
+				NOT = { religion = tengri_pagan }
+				NOT = { religion = tengri_pagan_reformed }
+			}
+			AND = {
+				has_global_flag = gender_equality
+				NOT = { liege = { religion_group = muslim } }
+			}
+			religion = cathar
+			religion = bogomilist
+			has_character_flag = special_spiritual
 		}
+		
 		NOT = { trait = incapable }
+		
+		OR = {
+			is_theocracy = yes
+			liege = { religion_group = muslim }
+			AND = {
+				is_ruler = no
+				has_autocephaly = no
+			}
+		}
+		
+		OR = {
+			NOT = { religion_group = muslim }
+			NOT = { liege = { religion_group = muslim } }
+			trait = detached_priest
+			trait = martial_cleric
+			trait = scholarly_theologian
+			trait = mastermind_theologian
+		}
+		# PB: End new restrictions
+		is_councillor = no
+		independent = no
+		learning = 10
 	}
 	chance = {
 		factor = 100
@@ -657,7 +712,6 @@ obj_get_married = {
 		NOT = { trait = celibate }
 		NOT = { trait = incapable }
 		NOT = { trait = eunuch }
-		NOT = { trait = homosexual }
 		OR = {
 			is_female = no
 			NOT = { age = 40 }
@@ -665,14 +719,15 @@ obj_get_married = {
 		OR = {
 			is_ruler = no
 			is_feudal = yes
+			is_tribal = yes
 		}
 	}
 	chance = {
 		factor = 100
 		
 		modifier = {
-			factor = 0.1
-			trait = chaste
+			factor = 0.2
+			trait = homosexual
 		}
 		modifier = {
 			factor = 0.5
@@ -718,8 +773,11 @@ obj_get_married = {
 				is_ruler = no
 				age = 40
 			}
+			has_landed_title = k_papal_state
 			trait = celibate
 			trait = incapable
+			trait = eunuch
+			trait = homosexual
 		}
 	}
 	abort_effect = {
@@ -771,10 +829,6 @@ obj_marry_ruler = {
 	chance = {
 		factor = 100
 		
-		modifier = {
-			factor = 0.1
-			trait = chaste
-		}
 		modifier = {
 			factor = 1.5
 			trait = midas_touched
@@ -839,17 +893,17 @@ obj_have_a_daughter = {
 			}
 		}
 		OR = {
-			NOT = { age = 45 }
-			is_female = no
-		}
-		OR = { 
 			ai = no
 			is_female = yes
+			num_of_children = 2
+		}
+		NOT = {
 			AND = {
-				num_of_children = 2
-				NOT = { age = 45 }
+				age = 45
+				is_female = yes
 			}
 		}
+		NOT = { age = 75 }
 		NOT = { trait = celibate }
 		NOT = { trait = incapable }
 	}
@@ -880,6 +934,7 @@ obj_have_a_daughter = {
 				age = 45
 				is_female = yes
 			}
+			age = 75
 			trait = celibate
 			trait = incapable
 		}
@@ -900,8 +955,10 @@ obj_have_a_son = {
 	allow = {
 		prisoner = no
 		is_marriage_adult = yes
-		is_female = no
-		is_married = yes
+		OR = {
+			is_married = yes
+			is_consort = yes
+		}
 		NOT = {
 			any_child = {
 				is_female = no
@@ -909,6 +966,7 @@ obj_have_a_son = {
 		}
 		OR = {
 			ai = no
+			is_female = no
 			# Have at least two daughters
 			any_child = {
 				is_female = yes
@@ -918,6 +976,12 @@ obj_have_a_son = {
 						NOT = { character = PREVPREV }
 					}
 				}
+			}
+		}
+		NOT = {
+			AND = {
+				age = 45
+				is_female = yes
 			}
 		}
 		NOT = { age = 75 }
@@ -947,6 +1011,10 @@ obj_have_a_son = {
 	}
 	abort = {
 		OR = {
+			AND = {
+				age = 45
+				is_female = yes
+			}
 			age = 75
 			trait = celibate
 			trait = incapable
@@ -970,12 +1038,19 @@ obj_wants_landed_title = {
 		is_ruler = no
 		NOT = { trait = incapable }
 		NOT = { trait = eunuch }
+		NOT = { has_minor_title = title_guru }
 		liege = {
-			is_feudal = yes
+			OR = {
+				is_feudal = yes
+				is_tribal = yes
+			}
 			is_close_relative = ROOT
 			num_of_extra_landed_titles = 1
 			OR = {
-				NOT = { is_father = ROOT }
+				AND = {
+					NOT = { is_father = ROOT }
+					NOT = { is_mother = ROOT }
+				}
 				NOT = {
 					current_heir = {
 						character = ROOT
@@ -988,6 +1063,10 @@ obj_wants_landed_title = {
 				}
 			}
 		}
+		# PB: Additional restrictions to block folks who have no business wanting titles
+		NOT = { trait = monk }
+		NOT = { trait = nun }
+		NOT = { trait = celibate }
 	}
 	
 	chance = {
@@ -1020,6 +1099,13 @@ obj_wants_landed_title = {
 		modifier = {
 			factor = 3.0
 			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			religion_group = muslim
+			liege = {
+				dynasty = ROOT
+			}
 		}
 	}
 	success = {
@@ -1116,6 +1202,7 @@ obj_become_heir = {
 		is_primary_heir = yes
 	}
 	abort = {
+		trait = incapable
 	}
 	abort_effect = {
 	}
@@ -1173,7 +1260,10 @@ obj_improve_martial = {
 		martial = 8
 	}
 	abort = {
-		trait = incapable
+		OR = {
+			trait = incapable
+			trait = infirm
+		}
 	}
 	abort_effect = {
 		clr_character_flag = improve_martial_success
@@ -1238,7 +1328,10 @@ obj_improve_stewardship = {
 		stewardship = 8
 	}
 	abort = {
-		trait = incapable
+		OR = {
+			trait = incapable
+			trait = infirm
+		}
 	}
 	abort_effect = {
 		clr_character_flag = 10_salt
@@ -1305,7 +1398,10 @@ obj_improve_learning = {
 		learning = 8
 	}
 	abort = {
-		trait = incapable
+		OR = {
+			trait = incapable
+			trait = infirm
+		}
 	}
 	abort_effect = {
 		clr_character_flag = flying_machine
@@ -1368,7 +1464,10 @@ obj_improve_diplomacy = {
 		diplomacy = 8
 	}
 	abort = {
-		trait = incapable
+		OR = {
+			trait = incapable
+			trait = infirm
+		}
 	}
 	abort_effect = {
 		clr_character_flag = the_feud
@@ -1431,7 +1530,10 @@ obj_improve_intrigue = {
 		intrigue = 8
 	}
 	abort = {
-		trait = incapable
+		OR = {
+			trait = incapable
+			trait = infirm
+		}
 	}
 	abort_effect = {
 		clr_character_flag = the_necklace
@@ -1626,9 +1728,15 @@ obj_become_king = {
 			trait = depressed
 			is_playable = no
 			is_landed = no
-			higher_tier_than = DUKE
+			AND = {
+				higher_tier_than = DUKE
+				primary_title = {
+					temporary = no
+				}
+			}
 			any_heir_title = {
 				higher_tier_than = DUKE
+				temporary = no
 			}
 		}
 	}
@@ -1640,4 +1748,506 @@ obj_become_king = {
 		prestige = 1000
 	}
 	
+}
+
+
+### Buddhist ambitions ###
+
+obj_buddhist_stop_drinking = {
+	type = character
+	
+	allow = {
+		is_adult = yes
+		religion = buddhist
+		trait = drunkard
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
+	}
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 1.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+	}
+	success = {
+		NOT = { trait = drunkard }
+	}
+	abort = {
+		NOT = { religion = buddhist }
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
+	effect = {
+		piety = 100
+		clr_character_flag = guru_helped_ambition
+	}
+}
+
+obj_buddhist_reject_empty_pleasures = {
+	type = character
+	
+	allow = {
+		is_adult = yes
+		religion = buddhist
+		trait = hedonist
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
+	}
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 1.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+	}
+	success = {
+		NOT = { trait = hedonist }
+	}
+	abort = {
+		NOT = { religion = buddhist }
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
+	effect = {
+		piety = 100
+		clr_character_flag = guru_helped_ambition
+	}
+}
+
+obj_buddhist_abstain_sexual_excess = {
+	type = character
+	
+	allow = {
+		is_adult = yes
+		religion = buddhist
+		trait = lustful
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
+	}
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 1.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+	}
+	success = {
+		NOT = { trait = lustful }
+	}
+	abort = {
+		NOT = { religion = buddhist }
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
+	effect = {
+		piety = 100
+		clr_character_flag = guru_helped_ambition
+	}
+}
+
+obj_buddhist_reject_cruelty = {
+	type = character
+	
+	allow = {
+		is_adult = yes
+		religion = buddhist
+		OR = {
+			trait = impaler
+			trait = cruel
+		}
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
+	}
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 1.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+	}
+	success = {
+		NOT = { trait = impaler }
+		NOT = { trait = cruel }
+	}
+	abort = {
+		NOT = { religion = buddhist }
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
+	effect = {
+		piety = 100
+		clr_character_flag = guru_helped_ambition
+	}
+}
+
+obj_buddhist_temperance_food = {
+	type = character
+	
+	allow = {
+		is_adult = yes
+		religion = buddhist
+		trait = gluttonous
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
+	}
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 1.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+	}
+	success = {
+		NOT = { trait = gluttonous }
+	}
+	abort = {
+		NOT = { religion = buddhist }
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
+	effect = {
+		piety = 100
+		clr_character_flag = guru_helped_ambition
+	}
+}
+
+obj_buddhist_reject_greed = {
+	type = character
+	
+	allow = {
+		is_adult = yes
+		religion = buddhist
+		trait = greedy
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
+	}
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 1.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+	}
+	success = {
+		NOT = { trait = greedy }
+	}
+	abort = {
+		NOT = { religion = buddhist }
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
+	effect = {
+		piety = 100
+		clr_character_flag = guru_helped_ambition
+	}
+}
+
+obj_buddhist_reject_envy = {
+	type = character
+	
+	allow = {
+		is_adult = yes
+		religion = buddhist
+		trait = envious
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
+	}
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 1.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+	}
+	success = {
+		NOT = { trait = envious }
+	}
+	abort = {
+		NOT = { religion = buddhist }
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
+	effect = {
+		piety = 100
+		clr_character_flag = guru_helped_ambition
+	}
+}
+
+obj_buddhist_reject_hate = {
+	type = character
+	
+	allow = {
+		is_adult = yes
+		religion = buddhist
+		trait = wroth
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
+	}
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 1.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+	}
+	success = {
+		NOT = { trait = wroth }
+	}
+	abort = {
+		NOT = { religion = buddhist }
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
+	effect = {
+		piety = 100
+		clr_character_flag = guru_helped_ambition
+	}
+}
+
+obj_buddhist_reject_pride = {
+	type = character
+	
+	allow = {
+		is_adult = yes
+		religion = buddhist
+		trait = proud
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
+	}
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 1.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+	}
+	success = {
+		NOT = { trait = proud }
+	}
+	abort = {
+		NOT = { religion = buddhist }
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
+	effect = {
+		piety = 100
+		clr_character_flag = guru_helped_ambition
+	}
+}
+
+obj_buddhist_defeat_fear = {
+	type = character
+	
+	allow = {
+		is_adult = yes
+		religion = buddhist
+		OR = {
+			trait = paranoid
+			trait = craven
+		}
+		NOT = { trait = incapable }
+		NOT = { trait = infirm }
+	}
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 1.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+	}
+	success = {
+		NOT = { trait = paranoid }
+		NOT = { trait = craven }
+	}
+	abort = {
+		NOT = { religion = buddhist }
+	}
+	abort_effect = {
+		clr_character_flag = guru_helped_ambition
+	}
+	effect = {
+		piety = 100
+		clr_character_flag = guru_helped_ambition
+	}
+}
+
+obj_become_paragon_of_enlightenment = {
+	type = character
+	
+	allow = {
+		is_adult = yes
+		NOT = { piety = 100 }
+		is_ruler = yes
+		religion_group = indian_group
+		NOT = { trait = slow }
+		NOT = { trait = imbecile }
+		NOT = { trait = inbred }
+		NOT = { trait = lunatic }
+	}
+	chance = {
+		factor = 50
+		
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 0.01
+			NOT = { tier = king }
+			NOT = { tier = emperor }
+		}
+		modifier = {
+			factor = 10.0
+			OR = {
+				trait = detached_priest
+				trait = martial_cleric
+				trait = scholarly_theologian
+				trait = mastermind_theologian
+			}
+		}
+		modifier = {
+			factor = 10.0
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.01
+			trait = cynical
+		}
+	}
+	success = {
+		piety = 500
+	}
+	abort = {
+		OR = {
+			trait = incapable
+			trait = lunatic
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		change_learning = 1
+		piety = 100
+		if = {
+			limit = {
+				has_nickname = no
+			}
+			give_nickname = nick_the_wise
+		}
+		religion_authority = {
+			modifier = paragon_of_enlightenment
+			years = 20
+		}
+		any_vassal = {
+			limit = {
+				is_theocracy = yes
+				religion = ROOT
+			}
+			opinion = {
+				who = ROOT
+				modifier = opinion_enlightened
+				months = 1200
+			}
+		}
+	}
 }

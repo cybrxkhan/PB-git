@@ -331,9 +331,7 @@ character_event = {
 	min_age = 10
 	
 	trigger = {
-		NOT = {
-			religion_group = muslim
-		}
+		religion_group = christian
 		health = 4
 		trait = possessed
 	}
@@ -356,8 +354,8 @@ character_event = {
 		name = EVTOPTA6031
 		remove_trait = possessed
 		remove_character_modifier = voice_of_satan
-		remove_character_modifier = voice_of_jesus 
-		remove_character_modifier = holy_comet 
+		remove_character_modifier = voice_of_jesus
+		remove_character_modifier = holy_comet
 	}
 }
 
@@ -1587,10 +1585,7 @@ character_event = {
 	
 	trigger = {
 		trait = possessed
-		OR = {
-			religion = catholic
-			religion = orthodox
-		}
+		religion_group = christian
 		NOT = { has_character_modifier = voice_of_jesus }
 		NOT = { has_character_modifier = voice_of_satan }
 		NOT = { has_character_modifier = holy_comet }
@@ -1793,7 +1788,7 @@ character_event = {
 	}
 }
 
-# I must leave behind my guttony
+# I must leave behind my gluttony
 character_event = {
 	id = 6206
 	desc = EVTDESC6206
@@ -2398,7 +2393,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA6228
-		remove_trait = chaste
+		add_trait = lustful
 	}
 }
 
@@ -3011,6 +3006,7 @@ character_event = {
 			religion = finnish_pagan_reformed
 		}
 		NOT = { has_character_flag = the_old_ones_are_waking }
+		NOT = { trait = in_hiding }
 	}
 	
 	immediate = {
@@ -3063,6 +3059,7 @@ character_event = {
 			religion = finnish_pagan_reformed
 		}
 		NOT = { has_character_flag = the_old_ones_are_waking }
+		NOT = { trait = in_hiding }
 	}
 	
 	immediate = {
@@ -3115,6 +3112,7 @@ character_event = {
 			religion = finnish_pagan_reformed
 		}
 		NOT = { has_character_flag = the_old_ones_are_waking }
+		NOT = { trait = in_hiding }
 	}
 	
 	immediate = {
@@ -3167,6 +3165,7 @@ character_event = {
 			religion = finnish_pagan_reformed
 		}
 		NOT = { has_character_flag = the_old_ones_are_waking }
+		NOT = { trait = in_hiding }
 	}
 	
 	immediate = {
@@ -3286,6 +3285,6 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTB6358
-		add_character_modifier = { name = "killed_an_old_one" duration = 3635 }
+		add_character_modifier = { name = "killed_an_old_one" duration = -1 }
 	}	
 }

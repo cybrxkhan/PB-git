@@ -27,10 +27,10 @@
 # 37 - Prison 				- 38
 
 holy_war_cooldown = {
-	icon = 34
+	icon = 46 # custom, was 34
 }
 coastal_republic_cooldown = {
-	icon = 34
+	icon = 46 # custom, was 34
 }
 small_loan = {
 	icon = 22
@@ -86,7 +86,50 @@ culture_clash = {
 	#local_tax_modifier = -0.5
 	local_revolt_risk = 0.01
 }
-baqt = {
-	icon = 6
-	local_tax_modifier = 0.5
+reduced_obligations = {
+	icon = 34
+	castle_vassal_max_levy = -0.2
+	castle_vassal_tax_modifier = -0.1
+}
+
+
+####
+# Autonomy Faction Modifiers
+#
+# the new mil/eco modifiers:
+# - due to the different approach taken, they're more simply looked at as
+#   a realm-wide modifier (excluding the liege's personal demesne).
+# - in theory, they could stack.  currently, if a different AF (different
+#   liege in same realm) applies a cooperation modifier, it cannot be
+#   discerned from one applied by another AF (perhaps a tier above),
+#   so the latter AF will be forced to take the status quo option. to solve
+#   this, we need a hidden character modifier applied to the AF members
+#   when the province modifiers are, enabling application of a second-tier
+#   province modifier to the overlapping AF sub-realm safely.
+
+af_mil_cooperation_t1 = {
+	icon = 16
+	levy_reinforce_rate = 0.1
+	levy_size = 0.08
+	garrison_size = 0.08
+}
+
+af_eco_cooperation_t1 = {
+	icon = 16
+	local_tax_modifier = 0.1
+	local_build_time_modifier = -0.1
+	local_build_cost_modifier = -0.1
+}
+
+autonomy_commended = {
+	icon = 16
+	vassal_opinion = 5
+	monthly_character_prestige = 0.25
+}
+
+# Crown law revocation cooldown (CA-only-- investiture excluded).
+# Inherited and pinned on the liege.
+
+ca_revoke_cooldown = {
+	icon = 11
 }

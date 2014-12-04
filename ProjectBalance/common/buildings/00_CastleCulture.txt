@@ -1,12 +1,18 @@
 # Castle
-# Culture building tiers - maintenance used. Knights count as 6 rather than 8
-# Every level gives -30 maintenance worth of every non-cultural unit
-# Tier 0 - 180. 30 after reduction
-# Tier 1 - 240. 90 after reduction
-# Tier 2 - 300. 150 after reduction
-# Tier 3 - 360. 210 after reduction
-# Tier 4 - 420. 270 after reduction
-# Tier 5 - 480. 330 after reduction
+# Culture building tiers - maintenance used
+# Every level gives -30 maintenance worth of every non-cultural unit except knights. If given two units that are normally subtracted, give 30 less maintenance worth of cultural units
+# Maintenance values:
+# Light infantry - 1
+# Archers - 1.5
+# Heavy infantry/pikement/light cavalry/camel cavalry - 2
+# Horse archers - 2
+# Knights - 4
+# Tier 0 - 180. 60 after reduction
+# Tier 1 - 240. 120 after reduction
+# Tier 2 - 300. 180 after reduction
+# Tier 3 - 360. 240 after reduction
+# Tier 4 - 420. 300 after reduction
+# Tier 5 - 480. 360 after reduction
 
 castle = {
 	# Dutch Urban Militia
@@ -16,21 +22,20 @@ castle = {
 			OR = {
 				culture = dutch
 				culture = frisian
+				culture = suebi # Should be moved to separate building
 			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
 		light_infantry = 30
-		pikemen = 50
-		heavy_infantry = -10
-		light_cavalry = -10
+		pikemen = 60
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		light_infantry_offensive = 0.05
-		pikemen_offensive = 0.05
+		light_infantry_offensive = 0.1
+		pikemen_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -41,22 +46,21 @@ castle = {
 			OR = {
 				culture = dutch
 				culture = frisian
+				culture = suebi # Should be moved to separate building
 			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_dutch_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		light_infantry = 60
-		pikemen = 60
-		heavy_infantry = -10
-		light_cavalry = -10
+		light_infantry = 70
+		pikemen = 70
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		light_infantry_offensive = 0.05
-		pikemen_offensive = 0.05
+		light_infantry_offensive = 0.1
+		pikemen_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -68,12 +72,14 @@ castle = {
 				OR = {
 					culture = dutch
 					culture = frisian
+					culture = suebi # Should be moved to separate building
 					culture_group = ROOT
 				}
 			}
 			OR = {
 				culture = dutch
 				culture = frisian
+				culture = suebi # Should be moved to separate building
 			}
 		}
 		trigger = {
@@ -81,18 +87,16 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_dutch_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		light_infantry = 90
-		pikemen = 70
-		heavy_infantry = -10
-		light_cavalry = -10
+		light_infantry = 110
+		pikemen = 80
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		light_infantry_offensive = 0.05
-		pikemen_offensive = 0.05
+		light_infantry_offensive = 0.1
+		pikemen_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -104,6 +108,7 @@ castle = {
 			OR = {
 				culture = dutch
 				culture = frisian
+				culture = suebi # Should be moved to separate building
 			}
 		}
 		trigger = {
@@ -111,18 +116,16 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_dutch_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
 		light_infantry = 150
-		pikemen = 70
-		heavy_infantry = -10
-		light_cavalry = -10
+		pikemen = 90
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		light_infantry_offensive = 0.05
-		pikemen_offensive = 0.05
+		light_infantry_offensive = 0.1
+		pikemen_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -134,6 +137,7 @@ castle = {
 			OR = {
 				culture = dutch
 				culture = frisian
+				culture = suebi # Should be moved to separate building
 			}
 		}
 		trigger = {
@@ -141,18 +145,16 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_dutch_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		light_infantry = 210
-		pikemen = 70
-		heavy_infantry = -10
-		light_cavalry = -10
+		light_infantry = 190
+		pikemen = 100
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		light_infantry_offensive = 0.05
-		pikemen_offensive = 0.05
+		light_infantry_offensive = 0.1
+		pikemen_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -164,6 +166,7 @@ castle = {
 			OR = {
 				culture = dutch
 				culture = frisian
+				culture = suebi # Should be moved to separate building
 			}
 		}
 		trigger = {
@@ -171,18 +174,16 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_dutch_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		light_infantry = 240
-		pikemen = 80
-		heavy_infantry = -10
-		light_cavalry = -10
+		light_infantry = 230
+		pikemen = 110
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		light_infantry_offensive = 0.05
-		pikemen_offensive = 0.05
+		light_infantry_offensive = 0.1
+		pikemen_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
@@ -195,17 +196,16 @@ castle = {
 			culture_group = east_african
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		light_infantry = 210
-		pikemen = -10
-		heavy_infantry = -10
-		light_cavalry = -10
-		archers = -20
-		horse_archers = -10
-		light_infantry_morale = 0.1
+		light_infantry = 105
+		pikemen = -15
+		heavy_infantry = -15
+		light_cavalry = -15
+		archers = 30
+		light_infantry_offensive = 0.1
+		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -217,12 +217,16 @@ castle = {
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_ethiopian_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		light_infantry = 120
-		light_infantry_morale = 0.1
+		light_infantry = 150
+		pikemen = -15
+		heavy_infantry = -15
+		light_cavalry = -15
+		archers = 40
+		light_infantry_offensive = 0.1
+		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -238,17 +242,16 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_ethiopian_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		light_infantry = 330
-		pikemen = -10
-		heavy_infantry = -10
-		light_cavalry = -10
-		archers = -20
-		horse_archers = -10
-		light_infantry_morale = 0.1
+		light_infantry = 195
+		pikemen = -15
+		heavy_infantry = -15
+		light_cavalry = -15
+		archers = 50
+		light_infantry_offensive = 0.1
+		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -264,17 +267,16 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_ethiopian_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
-		light_infantry = 390
-		pikemen = -10
-		heavy_infantry = -10
-		light_cavalry = -10
-		archers = -20
-		horse_archers = -10
-		light_infantry_morale = 0.1
+		light_infantry = 240
+		pikemen = -15
+		heavy_infantry = -15
+		light_cavalry = -15
+		archers = 60
+		light_infantry_offensive = 0.1
+		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -290,17 +292,16 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_ethiopian_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		light_infantry = 450
-		pikemen = -10
-		heavy_infantry = -10
-		light_cavalry = -10
-		archers = -20
-		horse_archers = -10
-		light_infantry_morale = 0.1
+		light_infantry = 285
+		pikemen = -15
+		heavy_infantry = -15
+		light_cavalry = -15
+		archers = 70
+		light_infantry_offensive = 0.1
+		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -316,17 +317,16 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_ethiopian_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		light_infantry = 510
-		pikemen = -10
-		heavy_infantry = -10
-		light_cavalry = -10
-		archers = -20
-		horse_archers = -10
-		light_infantry_morale = 0.1
+		light_infantry = 330
+		pikemen = -15
+		heavy_infantry = -15
+		light_cavalry = -15
+		archers = 80
+		light_infantry_offensive = 0.1
+		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
@@ -339,18 +339,16 @@ castle = {
 			culture_group = west_african
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
 		light_infantry = 60
-		archers = 80
-		pikemen = -10
-		heavy_infantry = -10
-		light_cavalry = -10
-		horse_archers = -10
-		light_infantry_offensive = 0.05
-		archers_offensive = 0.05
+		archers = 60
+		pikemen = -15
+		heavy_infantry = -15
+		light_cavalry = -15
+		light_infantry_offensive = 0.1
+		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -362,18 +360,16 @@ castle = {
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_west_african_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		light_infantry = 60
-		archers = 120
-		pikemen = -10
-		heavy_infantry = -10
-		light_cavalry = -10
-		horse_archers = -10
-		light_infantry_offensive = 0.05
-		archers_offensive = 0.05
+		light_infantry = 90
+		archers = 80
+		pikemen = -15
+		heavy_infantry = -15
+		light_cavalry = -15
+		light_infantry_offensive = 0.1
+		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -389,18 +385,16 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_west_african_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
 		light_infantry = 120
-		archers = 120
-		pikemen = -10
-		heavy_infantry = -10
-		light_cavalry = -10
-		horse_archers = -10
-		light_infantry_offensive = 0.05
-		archers_offensive = 0.05
+		archers = 100
+		pikemen = -15
+		heavy_infantry = -15
+		light_cavalry = -15
+		light_infantry_offensive = 0.1
+		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -416,18 +410,16 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_west_african_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
 		light_infantry = 150
-		archers = 140
-		pikemen = -10
-		heavy_infantry = -10
-		light_cavalry = -10
-		horse_archers = -10
-		light_infantry_offensive = 0.05
-		archers_offensive = 0.05
+		archers = 120
+		pikemen = -15
+		heavy_infantry = -15
+		light_cavalry = -15
+		light_infantry_offensive = 0.1
+		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -443,18 +435,16 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_west_african_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
 		light_infantry = 180
-		archers = 160
-		pikemen = -10
-		heavy_infantry = -10
-		light_cavalry = -10
-		horse_archers = -10
-		light_infantry_offensive = 0.05
-		archers_offensive = 0.05
+		archers = 140
+		pikemen = -15
+		heavy_infantry = -15
+		light_cavalry = -15
+		light_infantry_offensive = 0.1
+		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -470,18 +460,16 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_west_african_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
 		light_infantry = 210
-		archers = 180
-		pikemen = -10
-		heavy_infantry = -10
-		light_cavalry = -10
-		horse_archers = -10
-		light_infantry_offensive = 0.05
-		archers_offensive = 0.05
+		archers = 160
+		pikemen = -15
+		heavy_infantry = -15
+		light_cavalry = -15
+		light_infantry_offensive = 0.1
+		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
@@ -497,21 +485,21 @@ castle = {
 				culture = norman
 				culture = german
 				culture = breton
+				culture = cornish
+				culture = arpitan
 			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		knights = 40
+		knights = 45
 		light_infantry = -30
-		heavy_infantry = -10
-		pikemen = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		pikemen = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		knights_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -525,22 +513,22 @@ castle = {
 				culture = norman
 				culture = german
 				culture = breton
+				culture = cornish
+				culture = arpitan
 			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_frank_norman_german_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		knights = 50
+		knights = 60
 		light_infantry = -30
-		heavy_infantry = -10
-		pikemen = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		pikemen = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		knights_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -557,6 +545,8 @@ castle = {
 				culture = norman
 				culture = german
 				culture = breton
+				culture = cornish
+				culture = arpitan
 			}
 		}
 		trigger = { 
@@ -564,18 +554,16 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_frank_norman_german_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		knights = 60
+		knights = 75
 		light_infantry = -30
-		heavy_infantry = -10
-		pikemen = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		pikemen = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		knights_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -592,6 +580,8 @@ castle = {
 				culture = norman
 				culture = german
 				culture = breton
+				culture = cornish
+				culture = arpitan
 			}
 		}
 		trigger = { 
@@ -599,18 +589,16 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_frank_norman_german_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
-		knights = 70
+		knights = 90
 		light_infantry = -30
-		heavy_infantry = -10
-		pikemen = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		pikemen = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		knights_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -627,6 +615,8 @@ castle = {
 				culture = norman
 				culture = german
 				culture = breton
+				culture = cornish
+				culture = arpitan
 			}
 		}
 		trigger = { 
@@ -634,18 +624,16 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_frank_norman_german_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		knights = 80
+		knights = 105
 		light_infantry = -30
-		heavy_infantry = -10
-		pikemen = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		pikemen = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		knights_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -662,6 +650,8 @@ castle = {
 				culture = norman
 				culture = german
 				culture = breton
+				culture = cornish
+				culture = arpitan
 			}
 		}
 		trigger = { 
@@ -669,18 +659,16 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_frank_norman_german_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		knights = 90
+		knights = 120
 		light_infantry = -30
-		heavy_infantry = -10
-		pikemen = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		pikemen = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		knights_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
@@ -693,22 +681,25 @@ castle = {
 			OR = {
 				culture_group = altaic
 				culture_group = iranian
+				culture = hungarian
+				culture = romanian
 			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		light_cavalry = 20
-		knights = 10
-		horse_archers = 20
+		light_cavalry = 45
+		knights = -10
+		horse_archers = 45
 		light_infantry = -30
-		heavy_infantry = -10
-		pikemen = -10
+		heavy_infantry = -15
+		pikemen = -15
 		archers = -20
 		horse_archers_offensive = 0.05
 		horse_archers_morale = 0.05
+		light_cavalry_offensive = 0.05
+		light_cavalry_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -719,23 +710,26 @@ castle = {
 			OR = {
 				culture_group = altaic
 				culture_group = iranian
+				culture = hungarian
+				culture = romanian
 			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_group_altaic_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		light_cavalry = 30
-		knights = 10
-		horse_archers = 30
+		light_cavalry = 60
+		knights = -10
+		horse_archers = 60
 		light_infantry = -30
-		heavy_infantry = -10
-		pikemen = -10
+		heavy_infantry = -15
+		pikemen = -15
 		archers = -20
 		horse_archers_offensive = 0.05
 		horse_archers_morale = 0.05
+		light_cavalry_offensive = 0.05
+		light_cavalry_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -749,6 +743,8 @@ castle = {
 			OR = {
 				culture_group = altaic
 				culture_group = iranian
+				culture = hungarian
+				culture = romanian
 			}
 		}
 		trigger = { 
@@ -756,19 +752,20 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_group_altaic_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		light_cavalry = 30
-		knights = 20
-		horse_archers = 30
+		light_cavalry = 75
+		knights = -10
+		horse_archers = 75
 		light_infantry = -30
-		heavy_infantry = -10
-		pikemen = -10
+		heavy_infantry = -15
+		pikemen = -15
 		archers = -20
 		horse_archers_offensive = 0.05
 		horse_archers_morale = 0.05
+		light_cavalry_offensive = 0.05
+		light_cavalry_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -782,6 +779,8 @@ castle = {
 			OR = {
 				culture_group = altaic
 				culture_group = iranian
+				culture = hungarian
+				culture = romanian
 			}
 		}
 		trigger = { 
@@ -789,19 +788,20 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_group_altaic_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
-		light_cavalry = 40
-		knights = 20
-		horse_archers = 40
+		light_cavalry = 90
+		knights = -10
+		horse_archers = 90
 		light_infantry = -30
-		heavy_infantry = -10
-		pikemen = -10
+		heavy_infantry = -15
+		pikemen = -15
 		archers = -20
 		horse_archers_offensive = 0.05
 		horse_archers_morale = 0.05
+		light_cavalry_offensive = 0.05
+		light_cavalry_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -815,6 +815,8 @@ castle = {
 			OR = {
 				culture_group = altaic
 				culture_group = iranian
+				culture = hungarian
+				culture = romanian
 			}
 		}
 		trigger = { 
@@ -822,19 +824,20 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_group_altaic_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		light_cavalry = 50
-		knights = 20
-		horse_archers = 50
+		light_cavalry = 105
+		knights = -10
+		horse_archers = 105
 		light_infantry = -30
-		heavy_infantry = -10
-		pikemen = -10
+		heavy_infantry = -15
+		pikemen = -15
 		archers = -20
 		horse_archers_offensive = 0.05
 		horse_archers_morale = 0.05
+		light_cavalry_offensive = 0.05
+		light_cavalry_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -848,6 +851,8 @@ castle = {
 			OR = {
 				culture_group = altaic
 				culture_group = iranian
+				culture = hungarian
+				culture = romanian
 			}
 		}
 		trigger = { 
@@ -855,19 +860,20 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_group_altaic_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		light_cavalry = 50
-		knights = 30
-		horse_archers = 50
+		light_cavalry = 120
+		knights = -10
+		horse_archers = 120
 		light_infantry = -30
-		heavy_infantry = -10
-		pikemen = -10
+		heavy_infantry = -15
+		pikemen = -15
 		archers = -20
 		horse_archers_offensive = 0.05
 		horse_archers_morale = 0.05
+		light_cavalry_offensive = 0.05
+		light_cavalry_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
@@ -877,21 +883,22 @@ castle = {
 	ca_culture_group_arabic_0 = {
 		desc = ca_culture_group_arabic_1_desc
 		potential = {
-			culture_group = arabic
+			OR = { 
+				culture_group = arabic
+				culture_group = north_african
+			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		light_cavalry = 70
-		pikemen = -10
+		camel_cavalry = 90
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
-		light_cavalry_offensive = 0.05
-		light_cavalry_defensive = 0.05
+		camel_cavalry_offensive = 0.05
+		camel_cavalry_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -899,22 +906,23 @@ castle = {
 	ca_culture_group_arabic_1 = {
 		desc = ca_culture_group_arabic_1_desc
 		potential = {
-			culture_group = arabic
+			OR = { 
+				culture_group = arabic
+				culture_group = north_african
+			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_group_arabic_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		light_cavalry = 90
-		pikemen = -10
+		camel_cavalry = 120
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
-		light_cavalry_offensive = 0.05
-		light_cavalry_defensive = 0.05
+		camel_cavalry_offensive = 0.05
+		camel_cavalry_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -923,25 +931,26 @@ castle = {
 		desc = ca_culture_group_arabic_1_desc
 		potential = {
 			FROM = { culture_group = ROOT }
-			culture_group = arabic
+			OR = { 
+				culture_group = arabic
+				culture_group = north_african
+			}
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 2
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_group_arabic_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		light_cavalry = 110
-		pikemen = -10
+		camel_cavalry = 150
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
-		light_cavalry_offensive = 0.05
-		light_cavalry_defensive = 0.05
+		camel_cavalry_offensive = 0.05
+		camel_cavalry_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -950,25 +959,26 @@ castle = {
 		desc = ca_culture_group_arabic_1_desc
 		potential = {
 			FROM = { culture_group = ROOT }
-			culture_group = arabic
+			OR = { 
+				culture_group = arabic
+				culture_group = north_african
+			}
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 3
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_group_arabic_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
-		light_cavalry = 130
-		pikemen = -10
+		camel_cavalry = 180
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
-		light_cavalry_offensive = 0.05
-		light_cavalry_defensive = 0.05
+		camel_cavalry_offensive = 0.05
+		camel_cavalry_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -977,25 +987,26 @@ castle = {
 		desc = ca_culture_group_arabic_1_desc
 		potential = {
 			FROM = { culture = ROOT }
-			culture_group = arabic
+			OR = { 
+				culture_group = arabic
+				culture_group = north_african
+			}
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 4
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_group_arabic_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		light_cavalry = 150
-		pikemen = -10
+		camel_cavalry = 210
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
-		light_cavalry_offensive = 0.05
-		light_cavalry_defensive = 0.05
+		camel_cavalry_offensive = 0.05
+		camel_cavalry_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -1004,25 +1015,26 @@ castle = {
 		desc = ca_culture_group_arabic_1_desc
 		potential = {
 			FROM = { culture = ROOT }
-			culture_group = arabic
+			OR = { 
+				culture_group = arabic
+				culture_group = north_african
+			}
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 6
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_group_arabic_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		light_cavalry = 170
-		pikemen = -10
+		camel_cavalry = 240
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
-		light_cavalry_offensive = 0.05
-		light_cavalry_defensive = 0.05
+		camel_cavalry_offensive = 0.05
+		camel_cavalry_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
@@ -1038,18 +1050,16 @@ castle = {
 			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		heavy_infantry = 70
-		pikemen = -10
-		light_infantry = -30
-		light_cavalry = -10
+		heavy_infantry = 40
+		pikemen = -15
+		light_infantry = 80
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		heavy_infantry_offensive = 0.05
-		heavy_infantry_defensive = 0.05
+		light_infantry_offensive = 0.05
+		light_infantry_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 
 		extra_tech_building_start = 0.0
@@ -1064,18 +1074,16 @@ castle = {
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_group_baltic_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		heavy_infantry = 90
-		pikemen = -10
-		light_infantry = -30
-		light_cavalry = -10
+		heavy_infantry = 40
+		pikemen = -15
+		light_infantry = 130
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		heavy_infantry_offensive = 0.05
-		heavy_infantry_defensive = 0.05
+		light_infantry_offensive = 0.05
+		light_infantry_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 
 		extra_tech_building_start = 1.0
@@ -1096,18 +1104,16 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_group_baltic_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		heavy_infantry = 110
-		pikemen = -10
-		light_infantry = -30
-		light_cavalry = -10
+		heavy_infantry = 50
+		pikemen = -15
+		light_infantry = 170
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		heavy_infantry_offensive = 0.05
-		heavy_infantry_defensive = 0.05
+		light_infantry_offensive = 0.05
+		light_infantry_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -1128,18 +1134,16 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_group_baltic_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
-		heavy_infantry = 130
-		pikemen = -10
-		light_infantry = -30
-		light_cavalry = -10
+		heavy_infantry = 70
+		pikemen = -15
+		light_infantry = 190
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		heavy_infantry_offensive = 0.05
-		heavy_infantry_defensive = 0.05
+		light_infantry_offensive = 0.05
+		light_infantry_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -1160,18 +1164,16 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_group_baltic_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		heavy_infantry = 150
-		pikemen = -10
-		light_infantry = -30
-		light_cavalry = -10
+		heavy_infantry = 90
+		pikemen = -15
+		light_infantry = 210
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		heavy_infantry_offensive = 0.05
-		heavy_infantry_defensive = 0.05
+		light_infantry_offensive = 0.05
+		light_infantry_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -1192,18 +1194,16 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_group_baltic_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		heavy_infantry = 170
-		pikemen = -10
-		light_infantry = -30
-		light_cavalry = -10
+		heavy_infantry = 110
+		pikemen = -15
+		light_infantry = 230
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		heavy_infantry_offensive = 0.05
-		heavy_infantry_defensive = 0.05
+		light_infantry_offensive = 0.05
+		light_infantry_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
@@ -1216,19 +1216,18 @@ castle = {
 			culture_group = byzantine
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
 		knights = 30
-		horse_archers = 10
-		pikemen = -10
+		horse_archers = 30
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		knights_offensive = 0.05
-		horse_archers_offensive = 0.05
+		knights_offensive = 0.1
+		horse_archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -1240,19 +1239,18 @@ castle = {
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_group_byzantine_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
 		knights = 40
-		horse_archers = 10
-		pikemen = -10
+		horse_archers = 40
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		knights_offensive = 0.05
-		horse_archers_offensive = 0.05
+		knights_offensive = 0.1
+		horse_archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -1268,19 +1266,18 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_group_byzantine_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
 		knights = 50
-		horse_archers = 10
-		pikemen = -10
+		horse_archers = 50
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		knights_offensive = 0.05
-		horse_archers_offensive = 0.05
+		knights_offensive = 0.1
+		horse_archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -1296,19 +1293,18 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_group_byzantine_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
 		knights = 60
-		horse_archers = 10
-		pikemen = -10
+		horse_archers = 60
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		knights_offensive = 0.05
-		horse_archers_offensive = 0.05
+		knights_offensive = 0.1
+		horse_archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -1324,19 +1320,18 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_group_byzantine_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
 		knights = 70
-		horse_archers = 10
-		pikemen = -10
+		horse_archers = 70
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		knights_offensive = 0.05
-		horse_archers_offensive = 0.05
+		knights_offensive = 0.1
+		horse_archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -1352,19 +1347,18 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_group_byzantine_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
 		knights = 80
-		horse_archers = 10
-		pikemen = -10
+		horse_archers = 80
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		knights_offensive = 0.05
-		horse_archers_offensive = 0.05
+		knights_offensive = 0.1
+		horse_archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
@@ -1379,17 +1373,15 @@ castle = {
 			NOT = { culture = basque }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		light_cavalry = 70
-		pikemen = -10
+		light_cavalry = 90
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -1403,17 +1395,15 @@ castle = {
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_group_iberian_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		light_cavalry = 90
-		pikemen = -10
+		light_cavalry = 120
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -1431,17 +1421,15 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_group_iberian_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		light_cavalry = 110
-		pikemen = -10
+		light_cavalry = 150
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -1459,17 +1447,15 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_group_iberian_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
-		light_cavalry = 130
-		pikemen = -10
+		light_cavalry = 180
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -1487,17 +1473,15 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_group_iberian_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		light_cavalry = 150
-		pikemen = -10
+		light_cavalry = 210
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -1515,17 +1499,15 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_group_iberian_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		light_cavalry = 170
-		pikemen = -10
+		light_cavalry = 240
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
@@ -1538,17 +1520,15 @@ castle = {
 			culture = basque
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		heavy_infantry = 70
-		pikemen = -10
+		heavy_infantry = 90
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -1560,17 +1540,15 @@ castle = {
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_basque_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		heavy_infantry = 90
-		pikemen = -10
+		heavy_infantry = 120
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -1586,17 +1564,15 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_basque_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		heavy_infantry = 110
-		pikemen = -10
+		heavy_infantry = 150
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -1612,17 +1588,15 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_basque_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
-		heavy_infantry = 130
-		pikemen = -10
+		heavy_infantry = 180
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -1638,17 +1612,15 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_basque_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		heavy_infantry = 150
-		pikemen = -10
+		heavy_infantry = 210
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -1664,17 +1636,15 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_basque_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		heavy_infantry = 170
-		pikemen = -10
+		heavy_infantry = 240
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
@@ -1687,20 +1657,26 @@ castle = {
 			OR = {
 				culture_group = north_germanic
 				culture = saxon
+				culture = pommeranian
+				culture = norsegaelic
+				culture = anglonorse
+				culture = cumbric
+				culture = old_saxon
+				culture = frisian
+				culture = lombard      # These last two should probably
+				culture = old_frankish # be moved to a separate building
 			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		heavy_infantry = 70
-		pikemen = -10
+		heavy_infantry = 90
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -1711,21 +1687,27 @@ castle = {
 			OR = {
 				culture_group = north_germanic
 				culture = saxon
+				culture = pommeranian
+				culture = norsegaelic
+				culture = anglonorse
+				culture = cumbric
+				culture = old_saxon
+				culture = frisian
+				culture = lombard      # These last two should probably
+				culture = old_frankish # be moved to a separate building
 			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_group_north_germanic_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		heavy_infantry = 90
-		pikemen = -10
+		heavy_infantry = 120
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -1739,6 +1721,14 @@ castle = {
 			OR = {
 				culture_group = north_germanic
 				culture = saxon
+				culture = pommeranian
+				culture = norsegaelic
+				culture = anglonorse
+				culture = cumbric
+				culture = old_saxon
+				culture = frisian
+				culture = lombard      # These last two should probably
+				culture = old_frankish # be moved to a separate building
 			}
 		}
 		trigger = { 
@@ -1746,17 +1736,15 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_group_north_germanic_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		heavy_infantry = 110
-		pikemen = -10
+		heavy_infantry = 150
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -1770,7 +1758,14 @@ castle = {
 			OR = {
 				culture_group = north_germanic
 				culture = saxon
-				
+				culture = pommeranian
+				culture = norsegaelic
+				culture = anglonorse
+				culture = cumbric
+				culture = old_saxon
+				culture = frisian
+				culture = lombard      # These last two should probably
+				culture = old_frankish # be moved to a separate building
 			}
 		}
 		trigger = { 
@@ -1778,17 +1773,15 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_group_north_germanic_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
-		heavy_infantry = 130
-		pikemen = -10
+		heavy_infantry = 180
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -1802,6 +1795,14 @@ castle = {
 			OR = {
 				culture_group = north_germanic
 				culture = saxon
+				culture = pommeranian
+				culture = norsegaelic
+				culture = anglonorse
+				culture = cumbric
+				culture = old_saxon
+				culture = frisian
+				culture = lombard      # These last two should probably
+				culture = old_frankish # be moved to a separate building
 			}
 		}
 		trigger = { 
@@ -1809,17 +1810,15 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_group_north_germanic_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		heavy_infantry = 150
-		pikemen = -10
+		heavy_infantry = 210
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -1833,6 +1832,14 @@ castle = {
 			OR = {
 				culture_group = north_germanic
 				culture = saxon
+				culture = pommeranian
+				culture = norsegaelic
+				culture = anglonorse
+				culture = cumbric
+				culture = old_saxon
+				culture = frisian
+				culture = lombard      # These last two should probably
+				culture = old_frankish # be moved to a separate building
 			}
 		}
 		trigger = { 
@@ -1840,42 +1847,193 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_group_north_germanic_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		heavy_infantry = 170
-		pikemen = -10
+		heavy_infantry = 240
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
 	}
 	
-	# South Slavic Cavalry
+	#Croatian heavy infantry
+	ca_culture_croatia_0 = {
+		desc = ca_culture_croatia_1_desc
+		potential = {
+			OR = {
+				culture = croatian
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+		gold_cost = 100
+		build_time = 365
+		heavy_infantry = 90
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_offensive = 0.1
+		retinuesize = 20
+		ai_creation_factor = 102
+		
+		extra_tech_building_start = 0.0
+	}
+	ca_culture_croatia_1 = {
+		desc = ca_culture_croatia_1_desc
+		potential = {
+			OR = {
+				culture = croatian
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
+		upgrades_from = ca_culture_croatia_0
+		gold_cost = 200
+		build_time = 730
+		heavy_infantry = 120
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_offensive = 0.1
+		retinuesize = 20
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 1.0
+	}
+	ca_culture_croatia_2 = {
+		desc = ca_culture_croatia_1_desc
+		potential = {
+			FROM = { culture_group = ROOT }
+			OR = {
+				culture = croatian
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 2
+			FROM = { culture_group = ROOT }
+		}
+		upgrades_from = ca_culture_croatia_1
+		gold_cost = 300
+		build_time = 1095
+		heavy_infantry = 150
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_offensive = 0.1
+		retinuesize = 20
+		ai_creation_factor = 100
+		
+		extra_tech_building_start = 1.0
+	}
+	ca_culture_croatia_3 = {
+		desc = ca_culture_croatia_1_desc
+		potential = {
+			FROM = { culture_group = ROOT }
+			OR = {
+				culture = croatian
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 3
+			FROM = { culture_group = ROOT }
+		}
+		upgrades_from = ca_culture_croatia_2
+		gold_cost = 400
+		build_time = 1460
+		heavy_infantry = 180
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_offensive = 0.1
+		retinuesize = 20
+		ai_creation_factor = 99
+		
+		extra_tech_building_start = 1.0
+	}
+	ca_culture_croatia_4 = {
+		desc = ca_culture_croatia_1_desc
+		potential = {
+			FROM = { culture = ROOT }
+			OR = {
+				culture = croatian
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 4
+			FROM = { culture = ROOT }
+		}
+		upgrades_from = ca_culture_croatia_3
+		gold_cost = 500
+		build_time = 1825
+		heavy_infantry = 210
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_offensive = 0.1
+		retinuesize = 20
+		ai_creation_factor = 98
+		
+		extra_tech_building_start = 1.0
+	}
+	ca_culture_croatia_5 = {
+		desc = ca_culture_croatia_1_desc
+		potential = {
+			FROM = { culture = ROOT }
+			OR = {
+				culture = croatian
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 6
+			FROM = { culture = ROOT }
+		}
+		upgrades_from = ca_culture_croatia_4
+		gold_cost = 600
+		build_time = 2190
+		heavy_infantry = 240
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_offensive = 0.1
+		retinuesize = 20
+		ai_creation_factor = 97
+		
+		extra_tech_building_start = 1.0
+	}
+	
+	# Serbian Cavalry
 	ca_culture_group_south_slavic_0 = {
 		desc = ca_culture_group_south_slavic_1_desc
 		potential = {
-			culture_group = south_slavic
+			OR = {
+				culture = serbian
+				culture = bulgarian
+				culture = karantanci
+				culture = bosnian
+				culture = arberian
+			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		light_cavalry = 20
-		knights = 25
-		pikemen = -10
+		light_cavalry = 15
+		knights = 30
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
-		light_cavalry_defensive = 0.05
-		knights_defensive = 0.05
+		light_cavalry_defensive = 0.1
+		knights_defensive = 0.1
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -1883,23 +2041,27 @@ castle = {
 	ca_culture_group_south_slavic_1 = {
 		desc = ca_culture_group_south_slavic_1_desc
 		potential = {
-			culture_group = south_slavic
+			OR = {
+				culture = serbian
+				culture = bulgarian
+				culture = karantanci
+				culture = bosnian
+				culture = arberian
+			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_group_south_slavic_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		light_cavalry = 40
-		knights = 25
-		pikemen = -10
+		light_cavalry = 25
+		knights = 40
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
-		light_cavalry_defensive = 0.05
-		knights_defensive = 0.05
+		light_cavalry_defensive = 0.1
+		knights_defensive = 0.1
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -1908,26 +2070,30 @@ castle = {
 		desc = ca_culture_group_south_slavic_1_desc
 		potential = {
 			FROM = { culture_group = ROOT }
-			culture_group = south_slavic
+			OR = {
+				culture = serbian
+				culture = bulgarian
+				culture = karantanci
+				culture = bosnian
+				culture = arberian
+			}
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 2
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_group_south_slavic_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		light_cavalry = 40
-		knights = 35
-		pikemen = -10
+		light_cavalry = 35
+		knights = 50
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
-		light_cavalry_defensive = 0.05
-		knights_defensive = 0.05
+		light_cavalry_defensive = 0.1
+		knights_defensive = 0.1
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -1936,26 +2102,30 @@ castle = {
 		desc = ca_culture_group_south_slavic_1_desc
 		potential = {
 			FROM = { culture_group = ROOT }
-			culture_group = south_slavic
+			OR = {
+				culture = serbian
+				culture = bulgarian
+				culture = karantanci
+				culture = bosnian
+				culture = arberian
+			}
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 3
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_group_south_slavic_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
-		light_cavalry = 60
-		knights = 35
-		pikemen = -10
+		light_cavalry = 45
+		knights = 60
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
-		light_cavalry_defensive = 0.05
-		knights_defensive = 0.05
+		light_cavalry_defensive = 0.1
+		knights_defensive = 0.1
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -1964,26 +2134,30 @@ castle = {
 		desc = ca_culture_group_south_slavic_1_desc
 		potential = {
 			FROM = { culture = ROOT }
-			culture_group = south_slavic
+			OR = {
+				culture = serbian
+				culture = bulgarian
+				culture = karantanci
+				culture = bosnian
+				culture = arberian
+			}
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 4
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_group_south_slavic_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		light_cavalry = 80
-		knights = 35
-		pikemen = -10
+		light_cavalry = 55
+		knights = 70
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
-		light_cavalry_defensive = 0.05
-		knights_defensive = 0.05
+		light_cavalry_defensive = 0.1
+		knights_defensive = 0.1
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -1992,26 +2166,30 @@ castle = {
 		desc = ca_culture_group_south_slavic_1_desc
 		potential = {
 			FROM = { culture = ROOT }
-			culture_group = south_slavic
+			OR = {
+				culture = serbian
+				culture = bulgarian
+				culture = karantanci
+				culture = bosnian
+				culture = arberian
+			}
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 6
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_group_south_slavic_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		light_cavalry = 100
-		knights = 35
-		pikemen = -10
+		light_cavalry = 65
+		knights = 80
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
-		light_cavalry_defensive = 0.05
-		knights_defensive = 0.05
+		light_cavalry_defensive = 0.1
+		knights_defensive = 0.1
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
@@ -2022,23 +2200,25 @@ castle = {
 		desc = ca_culture_hungarian_1_desc
 		potential = {
 			OR = {
-				culture = hungarian
-				culture_group = west_slavic
+				culture = polish
+				culture = bohemian
+				culture = moravian
 			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		light_cavalry = 70
-		pikemen = -10
+		light_cavalry = 15
+		knights = 30
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_defensive = 0.05
 		light_cavalry_morale = 0.05
+		knights_defensive = 0.05
+		knights_cavalry_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -2047,24 +2227,26 @@ castle = {
 		desc = ca_culture_hungarian_1_desc
 		potential = {
 			OR = {
-				culture = hungarian
-				culture_group = west_slavic
+				culture = polish
+				culture = bohemian
+				culture = moravian
 			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_hungarian_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		light_cavalry = 90
-		pikemen = -10
+		light_cavalry = 25
+		knights = 40
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_defensive = 0.05
 		light_cavalry_morale = 0.05
+		knights_defensive = 0.05
+		knights_cavalry_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -2076,8 +2258,9 @@ castle = {
 				culture_group = ROOT
 			}
 			OR = {
-				culture = hungarian
-				culture_group = west_slavic
+				culture = polish
+				culture = bohemian
+				culture = moravian
 			}
 		}
 		trigger = {
@@ -2085,18 +2268,19 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_hungarian_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		light_cavalry = 110
-		pikemen = -10
+		light_cavalry = 35
+		knights = 50
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_defensive = 0.05
 		light_cavalry_morale = 0.05
+		knights_defensive = 0.05
+		knights_cavalry_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -2108,8 +2292,9 @@ castle = {
 				culture_group = ROOT
 			}
 			OR = {
-				culture = hungarian
-				culture_group = west_slavic
+				culture = polish
+				culture = bohemian
+				culture = moravian
 			}
 		}
 		trigger = {
@@ -2117,18 +2302,19 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_hungarian_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
-		light_cavalry = 130
-		pikemen = -10
+		light_cavalry = 45
+		knights = 60
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_defensive = 0.05
 		light_cavalry_morale = 0.05
+		knights_defensive = 0.05
+		knights_cavalry_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -2140,8 +2326,9 @@ castle = {
 				culture = ROOT
 			}
 			OR = {
-				culture = hungarian
-				culture_group = west_slavic
+				culture = polish
+				culture = bohemian
+				culture = moravian
 			}
 		}
 		trigger = {
@@ -2149,18 +2336,19 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_hungarian_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		light_cavalry = 150
-		pikemen = -10
+		light_cavalry = 55
+		knights = 70
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_defensive = 0.05
 		light_cavalry_morale = 0.05
+		knights_defensive = 0.05
+		knights_cavalry_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -2172,8 +2360,9 @@ castle = {
 				culture = ROOT
 			}
 			OR = {
-				culture = hungarian
-				culture_group = west_slavic
+				culture = polish
+				culture = bohemian
+				culture = moravian
 			}
 		}
 		trigger = {
@@ -2181,18 +2370,19 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_hungarian_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		light_cavalry = 170
-		pikemen = -10
+		light_cavalry = 65
+		knights = 80
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_defensive = 0.05
 		light_cavalry_morale = 0.05
+		knights_defensive = 0.05
+		knights_cavalry_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
@@ -2205,17 +2395,15 @@ castle = {
 			culture = irish
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		heavy_infantry = 70
-		pikemen = -10
+		heavy_infantry = 90
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_defensive = 0.1
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -2227,17 +2415,15 @@ castle = {
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_irish_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		heavy_infantry = 90
-		pikemen = -10
+		heavy_infantry = 120
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_defensive = 0.1
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -2253,17 +2439,15 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_irish_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		heavy_infantry = 110
-		pikemen = -10
+		heavy_infantry = 150
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_defensive = 0.1
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -2279,17 +2463,15 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_irish_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
-		heavy_infantry = 130
-		pikemen = -10
+		heavy_infantry = 180
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_defensive = 0.1
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -2305,17 +2487,15 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_irish_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		heavy_infantry = 150
-		pikemen = -10
+		heavy_infantry = 210
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_defensive = 0.1
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -2331,25 +2511,24 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_irish_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		heavy_infantry = 170
-		pikemen = -10
+		heavy_infantry = 240
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		heavy_infantry_defensive = 0.1
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
 	}
 	
-	#Italian Pike formations
+	#Italian Mounted Crossbowmen (Balestrieri a Cavallo)
+	# -> Cavalleria Training Ground
 	ca_culture_italian_0 = {
-		desc = ca_culture_italian_1_desc
+		desc = ca_culture_italian_cavalry_desc
 		potential = {
 			OR = {
 				culture = italian
@@ -2358,25 +2537,23 @@ castle = {
 			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		light_cavalry = 20
-		knights = 25
-		pikemen = -10
+		light_cavalry = 15
+		knights = 30
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_defensive = 0.05
 		knights_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
 	}
 	ca_culture_italian_1 = {
-		desc = ca_culture_italian_1_desc
+		desc = ca_culture_italian_cavalry_desc
 		potential = {
 			OR = {
 				culture = italian
@@ -2386,25 +2563,23 @@ castle = {
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_italian_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		light_cavalry = 20
-		knights = 35
-		pikemen = -10
+		light_cavalry = 25
+		knights = 40
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_defensive = 0.05
 		knights_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
 	}
 	ca_culture_italian_2 = {
-		desc = ca_culture_italian_1_desc
+		desc = ca_culture_italian_cavalry_desc
 		potential = {
 			FROM = { culture_group = ROOT }
 			OR = {
@@ -2418,25 +2593,23 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_italian_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		light_cavalry = 30
-		knights = 40
-		pikemen = -10
+		light_cavalry = 35
+		knights = 50
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_defensive = 0.05
 		knights_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
 	}
 	ca_culture_italian_3 = {
-		desc = ca_culture_italian_1_desc
+		desc = ca_culture_italian_cavalry_desc
 		potential = {
 			FROM = { culture_group = ROOT }
 			OR = {
@@ -2450,25 +2623,23 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_italian_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 2190
-		light_cavalry = 30
-		knights = 50
-		pikemen = -10
+		light_cavalry = 45
+		knights = 60
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_defensive = 0.05
 		knights_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
 	}
 	ca_culture_italian_4 = {
-		desc = ca_culture_italian_1_desc
+		desc = ca_culture_italian_cavalry_desc
 		potential = {
 			FROM = { culture = ROOT }
 			OR = {
@@ -2482,25 +2653,23 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_italian_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		light_cavalry = 40
-		knights = 55
-		pikemen = -10
+		light_cavalry = 55
+		knights = 70
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_defensive = 0.05
 		knights_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
 	}
 	ca_culture_italian_5 = {
-		desc = ca_culture_italian_1_desc
+		desc = ca_culture_italian_cavalry_desc
 		potential = {
 			FROM = { culture = ROOT }
 			OR = {
@@ -2514,19 +2683,17 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_italian_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		light_cavalry = 40
-		knights = 65
-		pikemen = -10
+		light_cavalry = 65
+		knights = 80
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
+		heavy_infantry = -15
 		archers = -20
-		horse_archers = -10
 		light_cavalry_defensive = 0.05
 		knights_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -2536,21 +2703,23 @@ castle = {
 	ca_culture_russian_0 = {
 		desc = ca_culture_russian_1_desc
 		potential = {
-			culture = russian
+			culture_group = east_slavic
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		heavy_infantry = 70
-		pikemen = -10
+		heavy_infantry = -15
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		heavy_infantry_defensive = 0.05
-		heavy_infantry_morale = 0.05
+		knights = 30
+		horse_archers = 30
+		knights_defensive = 0.05
+		knights_morale = 0.05
+		horse_archers_defensive = 0.05
+		horse_archers_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -2558,50 +2727,53 @@ castle = {
 	ca_culture_russian_1 = {
 		desc = ca_culture_russian_1_desc
 		potential = {
-			culture = russian
+			culture_group = east_slavic
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_russian_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		heavy_infantry = 90
-		pikemen = -10
+		heavy_infantry = -15
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		heavy_infantry_defensive = 0.05
-		heavy_infantry_morale = 0.05
+		knights = 40
+		horse_archers = 40
+		knights_defensive = 0.05
+		knights_morale = 0.05
+		horse_archers_defensive = 0.05
+		horse_archers_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
-		start = {			year = 1110
-		}
+		extra_tech_building_start = 1.0
 	}
 	ca_culture_russian_2 = {
 		desc = ca_culture_russian_1_desc
 		potential = {
 			FROM = { culture_group = ROOT }
-			culture = russian
+			culture_group = east_slavic
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 2
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_russian_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		heavy_infantry = 110
-		pikemen = -10
+		heavy_infantry = -15
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		heavy_infantry_defensive = 0.05
-		heavy_infantry_morale = 0.05
+		knights = 50
+		horse_archers = 50
+		knights_defensive = 0.05
+		knights_morale = 0.05
+		horse_archers_defensive = 0.05
+		horse_archers_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -2610,25 +2782,27 @@ castle = {
 		desc = ca_culture_russian_1_desc
 		potential = {
 			FROM = { culture_group = ROOT }
-			culture = russian
+			culture_group = east_slavic
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 3
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_russian_2
-		build_cost = 400
-		build_time = 1825
-		heavy_infantry = 130
-		pikemen = -10
+		gold_cost = 400
+		build_time = 1460
+		heavy_infantry = -150
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		heavy_infantry_defensive = 0.05
-		heavy_infantry_morale = 0.05
+		knights = 60
+		horse_archers = 60
+		knights_defensive = 0.05
+		knights_morale = 0.05
+		horse_archers_defensive = 0.05
+		horse_archers_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -2637,25 +2811,27 @@ castle = {
 		desc = ca_culture_russian_1_desc
 		potential = {
 			FROM = { culture = ROOT }
-			culture = russian
+			culture_group = east_slavic
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 4
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_russian_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		heavy_infantry = 150
-		pikemen = -10
+		heavy_infantry = -150
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		heavy_infantry_defensive = 0.05
-		heavy_infantry_morale = 0.05
+		knights = 70
+		horse_archers = 70
+		knights_defensive = 0.05
+		knights_morale = 0.05
+		horse_archers_defensive = 0.05
+		horse_archers_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -2664,25 +2840,27 @@ castle = {
 		desc = ca_culture_russian_1_desc
 		potential = {
 			FROM = { culture = ROOT }
-			culture = russian
+			culture_group = east_slavic
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 6
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_russian_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		heavy_infantry = 170
-		pikemen = -10
+		heavy_infantry = -15
+		pikemen = -15
 		light_infantry = -30
-		light_cavalry = -10
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
-		heavy_infantry_defensive = 0.05
-		heavy_infantry_morale = 0.05
+		knights = 80
+		horse_archers = 80
+		knights_defensive = 0.05
+		knights_morale = 0.05
+		horse_archers_defensive = 0.05
+		horse_archers_morale = 0.05
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
@@ -2698,17 +2876,15 @@ castle = {
 			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		archers = 140
-		pikemen = -10
+		archers = 120
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
-		horse_archers = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -2723,17 +2899,15 @@ castle = {
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_saxon_english_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		archers = 180
-		pikemen = -10
+		archers = 160
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
-		horse_archers = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -2754,17 +2928,15 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_saxon_english_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		archers = 220
-		pikemen = -10
+		archers = 200
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
-		horse_archers = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -2783,17 +2955,15 @@ castle = {
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_saxon_english_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
-		archers = 260
-		pikemen = -10
+		archers = 240
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
-		horse_archers = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -2812,17 +2982,15 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_saxon_english_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		archers = 300
-		pikemen = -10
+		archers = 280
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
-		horse_archers = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -2841,17 +3009,15 @@ castle = {
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_saxon_english_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		archers = 360
-		pikemen = -10
+		archers = 320
+		pikemen = -15
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
-		horse_archers = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers_offensive = 0.1
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
@@ -2861,21 +3027,22 @@ castle = {
 	ca_culture_scottish_0 = {
 		desc = ca_culture_scottish_1_desc
 		potential = {
-			culture = scottish
+			OR = {
+				culture = scottish
+				culture = pictish # Should be moved to a separate building
+			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		build_cost = 100
+		gold_cost = 100
 		build_time = 365
-		pikemen = 70
+		pikemen = 90
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		pikemen_offensive = 0.05
 		pikemen_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.1
 		ai_creation_factor = 102
 		
 		extra_tech_building_start = 0.0
@@ -2883,22 +3050,23 @@ castle = {
 	ca_culture_scottish_1 = {
 		desc = ca_culture_scottish_1_desc
 		potential = {
-			culture = scottish
+			OR = {
+				culture = scottish
+				culture = pictish # Should be moved to a separate building
+			}
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
 		upgrades_from = ca_culture_scottish_0
-		build_cost = 200
+		gold_cost = 200
 		build_time = 730
-		pikemen = 90
+		pikemen = 120
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		pikemen_offensive = 0.05
 		pikemen_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.15
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 1.0
@@ -2909,25 +3077,26 @@ castle = {
 			FROM = {
 				culture_group = ROOT
 			}
-			culture = scottish
+			OR = {
+				culture = scottish
+				culture = pictish # Should be moved to a separate building
+			}
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 2
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_scottish_1
-		build_cost = 300
+		gold_cost = 300
 		build_time = 1095
-		pikemen = 110
+		pikemen = 150
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		pikemen_offensive = 0.05
 		pikemen_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.2
 		ai_creation_factor = 100
 		
 		extra_tech_building_start = 1.0
@@ -2938,25 +3107,26 @@ castle = {
 			FROM = {
 				culture_group = ROOT
 			}
-			culture = scottish
+			OR = {
+				culture = scottish
+				culture = pictish # Should be moved to a separate building
+			}
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 3
 			FROM = { culture_group = ROOT }
 		}
 		upgrades_from = ca_culture_scottish_2
-		build_cost = 400
+		gold_cost = 400
 		build_time = 1460
-		pikemen = 130
+		pikemen = 180
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		pikemen_offensive = 0.05
 		pikemen_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.25
 		ai_creation_factor = 99
 		
 		extra_tech_building_start = 1.0
@@ -2967,25 +3137,26 @@ castle = {
 			FROM = {
 				culture = ROOT
 			}
-			culture = scottish
+			OR = {
+				culture = scottish
+				culture = pictish # Should be moved to a separate building
+			}
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 4
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_scottish_3
-		build_cost = 500
+		gold_cost = 500
 		build_time = 1825
-		pikemen = 150
+		pikemen = 210
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		pikemen_offensive = 0.05
 		pikemen_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.3
 		ai_creation_factor = 98
 		
 		extra_tech_building_start = 1.0
@@ -2996,27 +3167,394 @@ castle = {
 			FROM = {
 				culture = ROOT
 			}
-			culture = scottish
+			OR = {
+				culture = scottish
+				culture = pictish # Should be moved to a separate building
+			}
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 6
 			FROM = { culture = ROOT }
 		}
 		upgrades_from = ca_culture_scottish_4
-		build_cost = 600
+		gold_cost = 600
 		build_time = 2190
-		pikemen = 170
+		pikemen = 240
 		light_infantry = -30
-		heavy_infantry = -10
-		light_cavalry = -10
+		heavy_infantry = -15
+		light_cavalry = -15
 		archers = -20
-		horse_archers = -10
 		pikemen_offensive = 0.05
 		pikemen_defensive = 0.05
 		retinuesize = 20
-		tax_income = -0.35
 		ai_creation_factor = 97
 		
 		extra_tech_building_start = 1.0
-	}	
+	}
+	
+	# Aztec Jaguar Warriors
+	ca_culture_nahuatl_0 = {
+		desc = ca_culture_nahuatl_1_desc
+		potential = {
+			culture = nahuatl
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+		gold_cost = 100
+		build_time = 365
+		heavy_infantry = 90
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_morale = 0.1
+		retinuesize = 20
+		ai_creation_factor = 102
+
+		extra_tech_building_start = 0.0
+	}
+	ca_culture_nahuatl_1 = {
+		desc = ca_culture_nahuatl_1_desc
+		potential = {
+			culture = nahuatl
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
+		upgrades_from = ca_culture_nahuatl_0
+		gold_cost = 200
+		build_time = 730
+		heavy_infantry = 120
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_morale = 0.1
+		retinuesize = 20
+		ai_creation_factor = 101
+
+		extra_tech_building_start = 1.0
+	}
+	ca_culture_nahuatl_2 = {
+		desc = ca_culture_nahuatl_1_desc
+		potential = {
+			FROM = { culture_group = ROOT }
+			culture = nahuatl
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 2
+			FROM = { culture_group = ROOT }
+		}
+		upgrades_from = ca_culture_nahuatl_1
+		gold_cost = 300
+		build_time = 1095
+		heavy_infantry = 150
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_morale = 0.1
+		retinuesize = 20
+		ai_creation_factor = 100
+
+		extra_tech_building_start = 1.0
+	}
+	ca_culture_nahuatl_3 = {
+		desc = ca_culture_nahuatl_1_desc
+		potential = {
+			FROM = { culture_group = ROOT }
+			culture = nahuatl
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 3
+			FROM = { culture_group = ROOT }
+		}
+		upgrades_from = ca_culture_nahuatl_2
+		gold_cost = 400
+		build_time = 1460
+		heavy_infantry = 180
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_morale = 0.1
+		retinuesize = 20
+		ai_creation_factor = 99
+		
+		extra_tech_building_start = 1.0
+	}
+	ca_culture_nahuatl_4 = {
+		desc = ca_culture_nahuatl_1_desc
+		potential = {
+			FROM = { culture = ROOT }
+			culture = nahuatl
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 4
+			FROM = { culture = ROOT }
+		}
+		upgrades_from = ca_culture_nahuatl_3
+		gold_cost = 500
+		build_time = 1825
+		heavy_infantry = 210
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_morale = 0.1
+		retinuesize = 20
+		ai_creation_factor = 98
+		
+		extra_tech_building_start = 1.0
+	}
+	ca_culture_nahuatl_5 = {
+		desc = ca_culture_nahuatl_1_desc
+		potential = {
+			FROM = { culture = ROOT }
+			culture = nahuatl
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 6
+			FROM = { culture = ROOT }
+		}
+		upgrades_from = ca_culture_nahuatl_4
+		gold_cost = 600
+		build_time = 2190
+		heavy_infantry = 240
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_morale = 0.1
+		retinuesize = 20
+		ai_creation_factor = 97
+		
+		extra_tech_building_start = 1.0
+	}
+	
+	# Jewish Heavy Infantry
+	ca_culture_jewish_0 = {
+		desc = ca_culture_jewish_1_desc
+		potential = {
+			culture_group = israelite
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+		gold_cost = 100
+		build_time = 365
+		heavy_infantry = 90
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_offensive = 0.05
+		heavy_infantry_defensive = 0.05
+		retinuesize = 20
+		ai_creation_factor = 102
+
+		extra_tech_building_start = 0.0
+	}
+	ca_culture_jewish_1 = {
+		desc = ca_culture_jewish_1_desc
+		potential = {
+			culture_group = israelite
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
+		upgrades_from = ca_culture_jewish_0
+		gold_cost = 200
+		build_time = 730
+		heavy_infantry = 120
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_offensive = 0.05
+		heavy_infantry_defensive = 0.05
+		retinuesize = 20
+		ai_creation_factor = 101
+
+		extra_tech_building_start = 1.0
+	}
+	ca_culture_jewish_2 = {
+		desc = ca_culture_jewish_1_desc
+		potential = {
+			FROM = { culture_group = ROOT }
+			culture_group = israelite
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 2
+			FROM = { culture_group = ROOT }
+		}
+		upgrades_from = ca_culture_jewish_1
+		gold_cost = 300
+		build_time = 1095
+		heavy_infantry = 150
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_offensive = 0.05
+		heavy_infantry_defensive = 0.05
+		retinuesize = 20
+		ai_creation_factor = 100
+
+		extra_tech_building_start = 1.0
+	}
+	ca_culture_jewish_3 = {
+		desc = ca_culture_jewish_1_desc
+		potential = {
+			FROM = { culture_group = ROOT }
+			culture_group = israelite
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 3
+			FROM = { culture_group = ROOT }
+		}
+		upgrades_from = ca_culture_jewish_2
+		gold_cost = 400
+		build_time = 1460
+		heavy_infantry = 180
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_offensive = 0.05
+		heavy_infantry_defensive = 0.05
+		retinuesize = 20
+		ai_creation_factor = 99
+
+		extra_tech_building_start = 1.0
+	}
+	ca_culture_jewish_4 = {
+		desc = ca_culture_jewish_1_desc
+		potential = {
+			FROM = { culture = ROOT }
+			culture_group = israelite
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 4
+			FROM = { culture = ROOT }
+		}
+		upgrades_from = ca_culture_jewish_3
+		gold_cost = 500
+		build_time = 1825
+		heavy_infantry = 210
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_offensive = 0.05
+		heavy_infantry_defensive = 0.05
+		retinuesize = 20
+		ai_creation_factor = 98
+
+		extra_tech_building_start = 1.0
+	}
+	ca_culture_jewish_5 = {
+		desc = ca_culture_jewish_1_desc
+		potential = {
+			FROM = { culture = ROOT }
+			culture_group = israelite
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 6
+			FROM = { culture = ROOT }
+		}
+		upgrades_from = ca_culture_jewish_4
+		gold_cost = 600
+		build_time = 2190
+		heavy_infantry = 240
+		pikemen = -15
+		light_infantry = -30
+		light_cavalry = -15
+		archers = -20
+		heavy_infantry_offensive = 0.05
+		heavy_infantry_defensive = 0.05
+		retinuesize = 20
+		ai_creation_factor = 97
+
+		extra_tech_building_start = 1.0
+	}
+	# TODO: Rewrite for PB's system
+	# Indian war elephant pens
+	ca_culture_indian_1 = {
+		desc = ca_culture_indian_1_desc
+		potential = {
+			FROM = {
+				OR = {
+					culture_group = indo_aryan_group
+					culture_group = dravidian_group
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+		prerequisites = { ca_wall_2 }
+		gold_cost = 200
+		build_time = 730
+		war_elephants = 6
+		war_elephants_offensive = 0.15
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_indian_2 = {
+		desc = ca_culture_indian_2_desc
+		potential = {
+			FROM = {
+				OR = {
+					culture_group = indo_aryan_group
+					culture_group = dravidian_group
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
+		upgrades_from = ca_culture_indian_1
+		gold_cost = 300
+		build_time = 1095
+		war_elephants = 10
+		war_elephants_offensive = 0.05
+		war_elephants_defensive = 0.10
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_indian_3 = {
+		desc = ca_culture_indian_3_desc
+		potential = {
+			FROM = {
+				OR = {
+					culture_group = indo_aryan_group
+					culture_group = dravidian_group
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
+		upgrades_from = ca_culture_indian_2
+		gold_cost = 400
+		build_time = 2190
+		war_elephants = 22
+		war_elephants_offensive = 0.05
+		war_elephants_defensive = 0.10
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_indian_4 = {
+		desc = ca_culture_indian_4_desc
+		potential = {
+			FROM = {
+				OR = {
+					culture_group = indo_aryan_group
+					culture_group = dravidian_group
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 4 }
+		upgrades_from = ca_culture_indian_3
+		gold_cost = 500
+		build_time = 2190
+		war_elephants = 22
+		war_elephants_offensive = 0.05
+		war_elephants_defensive = 0.10
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 0.8
+	}
+
 }

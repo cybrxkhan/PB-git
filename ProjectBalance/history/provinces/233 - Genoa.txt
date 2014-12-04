@@ -16,16 +16,13 @@ b_savona = city
 #b_fosdinovo = castle
 
 # Misc
-culture = italian
+culture = lombard
 religion = catholic
 
 # History
 
+849.1.1 = { culture = italian }
 867.1.1 = { 
-	b_genoa = ct_trade_post_1
-	b_genoa = ct_trade_post_2
-	b_genoa = ct_trade_post_3
-	b_genoa = ct_trade_post_4
 	b_genoa = ct_wall_1
 	b_genoa = ct_wall_2
 	b_genoa = ct_marketplace_1
